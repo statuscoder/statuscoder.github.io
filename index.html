@@ -116,8 +116,6 @@ function changeLED(id) {
   var uri = null;    
   if (id == -1)
   {
-      var topclr = $('#top').val();
-      var bottomclr = $('#bottom').val();
       uri = baseUrl + "api?top_init&bottom_init&top_bg=" + topclr.val().substr(1,6) + "&bottom_bg=" + bottomclr.val().substr(1,6)
       alert(uri);
   } else {
