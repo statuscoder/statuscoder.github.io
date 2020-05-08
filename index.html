@@ -59,6 +59,9 @@
             <input type="color" id="top" name="top" value="#00ff00">
             <label for="top">Top</label>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:changeLED(-1)" style="color: black';">[Show Colors]</a>
+          </li>
         </ul>
     </div>
   </div>
@@ -109,7 +112,16 @@ function changeLED(id) {
         "api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
         "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"];
   var baseUrl = "https://www.ufo/";
-  var uri = baseUrl + urls[parseInt(id)];
+  var uri = null;    
+  if (id == -1)
+  {
+      var topclr = $('#top').val();
+      var bottomclr = $('#bottom').val();
+      uri = baseUrl + "api?top_init&bottom_init&top_bg=" + topclr.substr(1,6) + "&bottom_bg=" + bottomclr.substr(1,6)"
+      alert(uri);
+  } else {
+      uri = baseUrl + urls[parseInt(id)];
+  }
 
   xhttp.open("GET", uri, true);
   xhttp.send();
