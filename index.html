@@ -102,23 +102,29 @@ function changeLED(id) {
       document.getElementById("demo").innerHTML = this.responseText;
     }
   };
+  var topclr = $('#top');
+  var bottomclr = $('#bottom');
   var urls = ["api?top_init&bottom_init&logo=000000|000000|000000|000000",
         "api?logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw",
         "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
         "api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
         "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"];
+  var tclrs = ["000000","ffffff","ff0000","ffffff","ff0000"];
+  var bclrs = ["000000","ffffff","ff0000","ffffff","00ff00"];
+    
   var baseUrl = "https://www.ufo/";
   var uri = null;    
   if (id == -1)
   {
       var topclr = $('#top').val();
       var bottomclr = $('#bottom').val();
-      uri = baseUrl + "api?top_init&bottom_init&top_bg=" + topclr.substr(1,6) + "&bottom_bg=" + bottomclr.substr(1,6)
+      uri = baseUrl + "api?top_init&bottom_init&top_bg=" + topclr.val().substr(1,6) + "&bottom_bg=" + bottomclr.val().substr(1,6)
       alert(uri);
   } else {
+      topclr.val("#"+tlsrs[id]);
+      bottomclr.val("#"+bclrs[id]);      
       uri = baseUrl + urls[parseInt(id)];
   }
-
   xhttp.open("GET", uri, true);
   xhttp.send();
 }
