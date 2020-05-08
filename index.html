@@ -121,7 +121,7 @@ function changeLED(id) {
       uri = baseUrl + "api?top_init&bottom_init&top_bg=" + topclr.val().substr(1,6) + "&bottom_bg=" + bottomclr.val().substr(1,6)
       alert(uri);
   } else {
-      topclr.val("#"+tlsrs[id]);
+      topclr.val("#"+tclrs[id]);
       bottomclr.val("#"+bclrs[id]);      
       uri = baseUrl + urls[parseInt(id)];
   }
