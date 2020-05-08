@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Controls</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+<style>
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Gary's Home Office Controls</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto" style="background-color: white;">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">
+                <span class="sr-only">(current)</span>
+              </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:changeLED(3)" style="color: black';" >[Available]</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:changeLED(2)" style="color: black';">[Busy]</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:changeLED(1)" style="color: black';">[Thirsty/Hungry]</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="javascript:changeLED(4)" style="color: black';">[On A Call]</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:changeLED(0)" style="color: black';">[Turn Off]</a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<!--
+
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+//-->
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+       <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+</header>
+
+<!-- Page Content -->
+<section class="py-5">
+  <div class="container">
+    <h1 class="display-4">Full Page Image Slider</h1>
+    <p class="lead">The background images for the slider are set directly in the HTML using inline CSS. The images in this snippet are from <a href="https://unsplash.com">Unsplash</a>, taken by <a href="https://unsplash.com/@joannakosinska">Joanna Kosinska</a>!</p>
+  </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script>
+function changeLED(id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  var urls = ["api?top_init&bottom_init&logo=000000|000000|000000|000000",
+        "api?logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw",
+        "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
+        "api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
+        "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"];
+
+  url = "http://192.168.0.31/api?top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00";
+  if (id == 1) {
+    url = "http://192.168.0.31/api?top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw";
+  }
+  if (id == 2) {
+    url = "http://192.168.0.31/api?top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000";
+  }
+  if (id == 3) {
+    url = "http://192.168.0.31/api?top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff"
+  }
+  if (id == 4) {
+    url = "http://192.168.0.31/api?top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00";
+  }
+  var uri = "http://192.168.0.31/" + urls[parseInt(id)];
+
+  xhttp.open("GET", uri, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
