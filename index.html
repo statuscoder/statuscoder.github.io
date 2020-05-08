@@ -100,21 +100,8 @@ function changeLED(id) {
         "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
         "api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
         "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"];
-
-  url = "http://192.168.0.31/api?top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00";
-  if (id == 1) {
-    url = "http://192.168.0.31/api?top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw";
-  }
-  if (id == 2) {
-    url = "http://192.168.0.31/api?top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000";
-  }
-  if (id == 3) {
-    url = "http://192.168.0.31/api?top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff"
-  }
-  if (id == 4) {
-    url = "http://192.168.0.31/api?top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00";
-  }
-  var uri = "http://192.168.0.31/" + urls[parseInt(id)];
+  var baseUrl = "https://www.ufo/";
+  var uri = baseUrl + urls[parseInt(id)];
 
   xhttp.open("GET", uri, true);
   xhttp.send();
