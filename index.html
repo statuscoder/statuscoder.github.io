@@ -127,7 +127,7 @@
         } else {
           uri = baseUrl + urls[parseInt(id)];
         }
-        $.ajax({
+        ajax({
             url:  uri,
             type: "GET",
             success: function (result) {
