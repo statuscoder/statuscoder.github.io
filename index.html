@@ -58,6 +58,9 @@
           <li class="nav-item">
             <a class="nav-link" href="javascript:changeLED(-1)" style="color: black';">[Send Colors]</a>
           </li>
+          <li>
+            <span id="result" class="badge badge-primary"></span>
+          </li>
         </ul>
     </div>
   </div>
@@ -98,8 +101,15 @@
 function changeLED(id) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
+    var r = document.getElementById("result");
+    r.class = "badge badge-primary";
+    r.innerHTML = "sending";
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
+        r.class = "badge badge-success";
+        r.innerHTML = "sent";    
+    } else {
+        r.class = "badge badge-danger";
+        r.innerHTML = "failed";    
     }
   };
   var topclr = $('#top');
