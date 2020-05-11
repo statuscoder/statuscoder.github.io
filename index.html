@@ -115,7 +115,7 @@
       $("#changeLED").click(function(e){
         e.preventDefault();
         var el = e.target;
-        var id = el.data-id.val();
+        var id = el.attr('data-id');
         r.class = "badge badge-primary";
         r.innerHTML = "sending";
         alert(e);
