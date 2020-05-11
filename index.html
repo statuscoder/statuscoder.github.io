@@ -97,23 +97,7 @@
 <!-- Page Content -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<script>
-function changeLED(id) {   
-  var uri = null;    
-  if (id == -1)
-  {
-      uri = baseUrl + "api?top_init&bottom_init&top_bg=" + topclr.val().substr(1,6) + "&bottom_bg=" + bottomclr.val().substr(1,6)
-  } else {
-      topclr.val("#"+tclrs[id]);
-      bottomclr.val("#"+bclrs[id]);      
-      uri = baseUrl + urls[parseInt(id)];
-  }
-
-  var r = document.getElementById("result");
-  r.class = "badge badge-primary";
-  r.innerHTML = "sending";
-  
-    
+<script>   
   $(document).ready(function()
   {
       var topclr = $('#top');
@@ -126,9 +110,12 @@ function changeLED(id) {
       var tclrs = ["000000","ffffff","ff0000","ffffff","ff0000"];
       var bclrs = ["000000","ffffff","ff0000","ffffff","00ff00"];
       var baseUrl = "https://ufo.statuscoder.gitub.io/";
+      var r = document.getElementById("result");
   
       $("changeLED").click(function(e){
         e.preventDefault();
+        r.class = "badge badge-primary";
+        r.innerHTML = "sending";
         alert(e);
         alert(e.data);
         var id = parseInt(e.data);
