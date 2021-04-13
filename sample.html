@@ -131,7 +131,7 @@
       var r = document.getElementById("result");
   
       console.log("ready.");
-      $("#changeLED").click(function(e){
+      $("#changeLED").on('click', function(e){
         console.log("ready..");
         e.preventDefault();
         var id = parseInt($(this).attr('data-id'));
@@ -168,7 +168,7 @@
         makeUFO('top', '#000000', '#cccccc', topclr.val().substr(1,6) , 6.4, 6.659, "top",40);
         makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
         makeUFO('bottom', '#000000', '#cccccc', bottomclr.val().substr(1,6) , 6.4, 6.659, "top",40);
-      })
+      });
 
       makeUFO('top', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top",40);
       makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
