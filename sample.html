@@ -10,89 +10,106 @@
 
     <!-- Custom styles for this template -->
 <style>
-.carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400);
+
+.ufo-container {
+    margin-top: 40px;
 }
+
+.chart-text {
+  font: 16px/1.4em "Montserrat", Arial, sans-serif;
+  fill: #000;
+  -moz-transform: translateY(0.25em);
+  -ms-transform: translateY(0.25em);
+  -webkit-transform: translateY(0.25em);
+  transform: translateY(0.25em);
+}
+
+.chart-number {
+  font-size: 0.6em;
+  line-height: 1;
+  text-anchor: middle;
+  -moz-transform: translateY(-0.25em);
+  -ms-transform: translateY(-0.25em);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+}
+
+.chart-label {
+  font-size: 0.2em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  -moz-transform: translateY(0.7em);
+  -ms-transform: translateY(0.7em);
+  -webkit-transform: translateY(0.7em);
+  transform: translateY(0.7em);
+}
+
 </style>
 </head>
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Gary's Home Office Controls</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto" style="background-color: white;">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-                <span class="sr-only">(current)</span>
-              </a>
-        </li>
-        <li class="nav-item">
-            <button class="btn btn-light" id="changeLED" data-id="3" style="color: black';" >[Available]</button>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-danger" id="changeLED" data-id="2" style="color: black';">[Busy]</button>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-info" id="changeLED" data-id="1" style="color: black';">[Thirsty/Hungry]</button>
-        </li>
-        <li class="nav-item">
-            <button class="btn btn-success" id="changeLED" data-id="4" style="color: black';">[On A Call]</button>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-dark" id="changeLED" data-id="0" style="color: black';">[Turn Off]</button>
-          </li>
-          <li class="nav-item">
-            <input type="color" id="bottom" name="bottom" value="#ff0000"><br/>
-            <input type="color" id="top" name="top" value="#00ff00">
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-info" id="changeLED" data-id="-1" style="color: black';">[Custom Colors]</button>
-          </li>
-          <li>
-            <span id="result" class="badge badge-primary"></span>
-          </li>
-        </ul>
-    </div>
-  </div>
-</nav>
-
-<header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-<!--
-
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-//-->
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-       <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
-        <div class="carousel-caption d-none d-md-block">
+    <div class="container">
+        <div class="row">
+          <div class="col">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">Gary's Dynatrace UFO Playground</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto" style="background-color: white;">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">
+                      <span class="sr-only">(current)</span>
+                    </a>
+              </li>
+              <li class="nav-item">
+                  <button class="btn btn-light" id="changeLED" data-id="3" style="color: black';" >[Available]</button>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-danger" id="changeLED" data-id="2" style="color: black';">[Busy]</button>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-info" id="changeLED" data-id="1" style="color: black';">[Thirsty/Hungry]</button>
+              </li>
+              <li class="nav-item">
+                  <button class="btn btn-success" id="changeLED" data-id="4" style="color: black';">[On A Call]</button>
+                </li>
+                <li class="nav-item">
+                  <button class="btn btn-dark" id="changeLED" data-id="0" style="color: black';">[Turn Off]</button>
+                </li>
+                <li class="nav-item">
+                  <input type="color" id="bottom" name="bottom" value="#ff0000"><br/>
+                  <input type="color" id="top" name="top" value="#00ff00">
+                </li>
+                <li class="nav-item">
+                  <button class="btn btn-info" id="changeLED" data-id="-1" style="color: black';">[Custom Colors]</button>
+                </li>
+                <li>
+                  <span id="result" class="badge badge-primary"></span>
+                </li>
+              </ul>
+          </div>
         </div>
+      </nav>    
+    </div>
+</div>
+</div>
+<div class="container ufo-container">
+    <div class="row">
+      <div class="col" id="col-top">
+        <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-top">
+        </svg>
+      </div>
+      <div class="col" id="col-bottom">
+        <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-bottom">
+        </svg>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-  </div>
-</header>
+</div>
 
 <!-- Page Content -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -100,6 +117,7 @@
 <script>   
   $(document).ready(function()
   {
+      console.log("ready");
       var topclr = $('#top');
       var bottomclr = $('#bottom');
       var urls = ["api?top_init&bottom_init&logo=000000|000000|000000|000000",
@@ -112,11 +130,15 @@
       var baseUrl = "https://ufo/";
       var r = document.getElementById("result");
   
+      console.log("ready.");
       $("#changeLED").click(function(e){
+        console.log("ready..");
         e.preventDefault();
         var id = parseInt($(this).attr('data-id'));
         r.class = "badge badge-primary";
+        var useApi = false;
         r.innerHTML = "sending";
+        console.log("triggered");
         var uri = null;    
         if (id == -1)
         {
@@ -124,23 +146,180 @@
         } else {
           uri = baseUrl + urls[parseInt(id)];
         }
-        $.ajax({
-            url:  uri,
-            type: "GET",
-            success: function (result) {
-                topclr.val("#"+tclrs[id]);
-                bottomclr.val("#"+bclrs[id]);      
-                r.class = "badge badge-success";
-                r.innerHTML = "sent";    
-            },
-            error: function (error) {
-                r.class = "badge badge-danger";
-                r.innerHTML = "failed";        
-            }
-        })    
-      })
-  })
-</script>
+        console.log(uri);
+        if (useApi) {
+            $.ajax({
+                url:  uri,
+                type: "GET",
+                success: function (result) {
+                    topclr.val("#"+tclrs[id]);
+                    bottomclr.val("#"+bclrs[id]);      
+                    r.class = "badge badge-success";
+                    r.innerHTML = "sent";    
+                },
+                error: function (error) {
+                    r.class = "badge badge-danger";
+                    r.innerHTML = "failed";        
+                }
+            })    
+        }
+        console.log("changing ufo");
 
+        makeUFO('top', '#000000', '#cccccc', topclr.val().substr(1,6) , 6.4, 6.659, "top",40);
+        makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+        makeUFO('bottom', '#000000', '#cccccc', bottomclr.val().substr(1,6) , 6.4, 6.659, "top",40);
+      })
+
+      makeUFO('top', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top",40);
+      makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+ 
+      makeUFO('bottom', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top", 40);
+      //makeLogo('bottom',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+
+    })
+
+    function removeAllChildNodes(parent) {
+       while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }    
+
+    function makeUFO(id, insidecolor, gapcolor, ledcolor, dashlength, rotationoffset, label, size){
+        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute('class','donut');
+        svg.setAttribute('id',"ufo-"+id);
+        svg.setAttribute('viewBox',"0 0 " + size + " " + size);
+        svg.setAttribute('width',"100%");
+        svg.setAttribute('height',"100%");
+        var div = document.getElementById("col-"+id);
+        removeAllChildNodes(div);        
+        var l = 15;
+        var ro = 25;
+        var cx = size/2;
+        var cy = size/2;
+        var r = 15.91549430918954;
+        var r = 16;
+        var f = "transparent";
+        var sw = 3;
+        var d = dashlength + " " + (100-dashlength);
+
+        var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute('class','donut-ring');
+            circle.setAttribute('cx',cx);
+            circle.setAttribute('cy',cy);
+            circle.setAttribute('r',17);
+            circle.setAttribute('fill',gapcolor);
+        svg.appendChild(circle);            
+
+        circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute('class','donut-hole');
+            circle.setAttribute('cx',cx);
+            circle.setAttribute('cy',cy);
+            circle.setAttribute('r',15);
+            circle.setAttribute('fill',insidecolor);
+        svg.appendChild(circle);
+
+
+        circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        for(var i = 0; i < l; i++)
+        {
+            circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute('class','donut-segment');
+            circle.setAttribute('cx',cx);
+            circle.setAttribute('cy',cy);
+            circle.setAttribute('r',r);
+            circle.setAttribute('fill',f);
+            circle.setAttribute('stroke',ledcolor);
+            circle.setAttribute('stroke-width',sw);
+            circle.setAttribute('stroke-dasharray',d);
+            circle.setAttribute('stroke-dashoffset',ro);
+            svg.appendChild(circle);                
+            ro = ro - rotationoffset;
+        }
+        var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            g.setAttribute('class','chart-text');
+        var t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            t.setAttribute('class','chart-number');
+            t.setAttribute('x','50%');
+            t.setAttribute('y','50%');
+            t.innerHTML = l;
+            g.appendChild(t);
+            t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            t.setAttribute('class','chart-label');
+            t.setAttribute('x','50%');
+            t.setAttribute('y','50%');
+            t.innerHTML = label;
+            g.appendChild(t);
+        //svg.appendChild(g);
+        div.appendChild(svg);
+
+    }
+
+        
+    function makeLogo(id, t,l,b,r,colors){
+        var svg = document.getElementById("ufo-"+id);
+        var p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+        var pts = "{{xy1}} {{xy2}} {{xy3}} {{xy4}} ";
+        var sl = ((b-t)/4);
+        var ll = (b-t);
+        var xy1, xy2, xy3, xy4, t_pts;
+
+        //top
+        xy1 = (l+sl) + "," + t; 
+        xy2 = l + "," + (t+sl); 
+        xy3 = (r-sl) + "," + (t+sl); 
+        xy4 = r + "," + t; 
+        t_pts = pts;
+        t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);
+        console.log(t_pts);            
+        p.setAttribute('points', t_pts);
+        p.setAttribute('fill',colors[0]);
+        svg.appendChild(p);
+
+
+        //left
+        p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");   
+        xy1 = l+","+(t+sl); 
+        xy2 = (l+sl)+","+(t+sl); 
+        xy3 = (l+sl)+","+(b-sl); 
+        xy4 = l+","+b; 
+        t_pts = pts;
+        t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
+        console.log(t_pts);            
+        p.setAttribute('points', t_pts);
+        p.setAttribute('fill',colors[1]);
+        svg.appendChild(p);
+
+
+        //bottom
+        p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");   
+        xy1 = l+","+b; 
+        xy2 = (l+sl)+","+(b-sl); 
+        xy3 = (r-sl)+","+(b-sl); 
+        xy4 = (r-sl)+","+b; 
+        t_pts = pts;
+        t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
+        console.log(t_pts);            
+        p.setAttribute('points', t_pts);
+        p.setAttribute('fill',colors[2]);
+        svg.appendChild(p);
+
+        //right
+        p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");   
+        xy1 = (r-sl)+","+b; 
+        xy2 = (r-sl)+","+(t+sl); 
+        xy3 = r+","+t; 
+        xy4 = r+","+(b-sl); 
+        t_pts = pts;
+        t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
+        console.log(t_pts);            
+        p.setAttribute('points', t_pts);
+        p.setAttribute('fill',colors[3]);
+        svg.appendChild(p);
+
+    }
+
+
+</script>
 </body>
 </html>
