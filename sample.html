@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -9,177 +10,192 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-<style>
+    <style>
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400);
+      @import url(https://fonts.googleapis.com/css?family=Montserrat:400);
 
-.ufo-container {
-    margin-top: 40px;
-}
+      .ufo-container {
+          margin-top: 80px;
+          background-color: dimgrey;
+      }
 
-.chart-text {
-  font: 16px/1.4em "Montserrat", Arial, sans-serif;
-  fill: #000;
-  -moz-transform: translateY(0.25em);
-  -ms-transform: translateY(0.25em);
-  -webkit-transform: translateY(0.25em);
-  transform: translateY(0.25em);
-}
+      .chart-text {
+        font: 16px/1.4em "Montserrat", Arial, sans-serif;
+        fill: #000;
+        -moz-transform: translateY(0.25em);
+        -ms-transform: translateY(0.25em);
+        -webkit-transform: translateY(0.25em);
+        transform: translateY(0.25em);
+      }
 
-.chart-number {
-  font-size: 0.6em;
-  line-height: 1;
-  text-anchor: middle;
-  -moz-transform: translateY(-0.25em);
-  -ms-transform: translateY(-0.25em);
-  -webkit-transform: translateY(-0.25em);
-  transform: translateY(-0.25em);
-}
+      .chart-number {
+        font-size: 0.6em;
+        line-height: 1;
+        text-anchor: middle;
+        -moz-transform: translateY(-0.25em);
+        -ms-transform: translateY(-0.25em);
+        -webkit-transform: translateY(-0.25em);
+        transform: translateY(-0.25em);
+      }
 
-.chart-label {
-  font-size: 0.2em;
-  text-transform: uppercase;
-  text-anchor: middle;
-  -moz-transform: translateY(0.7em);
-  -ms-transform: translateY(0.7em);
-  -webkit-transform: translateY(0.7em);
-  transform: translateY(0.7em);
-}
+      .chart-label {
+        font-size: 0.2em;
+        text-transform: uppercase;
+        text-anchor: middle;
+        -moz-transform: translateY(0.7em);
+        -ms-transform: translateY(0.7em);
+        -webkit-transform: translateY(0.7em);
+        transform: translateY(0.7em);
+      }
 
-</style>
-</head>
-<body>
+    </style>
+  </head>
+  <body>
     <div class="container">
         <div class="row">
-          <div class="col">
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="#">Gary's Dynatrace UFO Playground</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto" style="background-color: white;">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">
-                      <span class="sr-only">(current)</span>
-                    </a>
-              </li>
-              <li class="nav-item">
-                  <button class="btn btn-light" id="changeLED" data-id="3" style="color: rgb(0, 0, 178);" >[Available]</button>
-              </li>
-              <li class="nav-item">
-                <button class="btn btn-danger" id="changeLED" data-id="2" style="color: rgb(105, 1, 1);">[Busy]</button>
-              </li>
-              <li class="nav-item">
-                <button class="btn btn-info" id="changeLED" data-id="1" style="color: rgb(90, 191, 254);">[Thirsty/Hungry]</button>
-              </li>
-              <li class="nav-item">
-                  <button class="btn btn-success" id="changeLED" data-id="4" style="color: rgb(188, 182, 77);">[On A Call]</button>
-                </li>
-                <li class="nav-item">
-                  <button class="btn btn-dark" id="changeLED" data-id="0" style="color: rgb(130, 127, 127); ">[Turn Off]</button>
-                </li>
-                <li class="nav-item">
-                  <input type="color" id="bottom" name="bottom" value="#ff0000"><br/>
-                  <input type="color" id="top" name="top" value="#00ff00">
-                </li>
-                <li class="nav-item">
-                  <button class="btn btn-info" id="changeLED" data-id="-1" style="color: black';">[Custom Colors]</button>
-                </li>
-                <li>
-                  <span id="result" class="badge badge-primary"></span>
-                </li>
-              </ul>
+          <div class="col">    
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                <div class="container">
+                  <a class="navbar-brand" href="#">Gary's Dynatrace UFO Playground</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                  <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto" style="background-color: white;">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                              <span class="sr-only">(current)</span>
+                            </a>
+                      </li>
+                      <li class="nav-item">
+                        <button class="btn btn-danger" id="changeLED" data-id="2" style="color: rgb(105, 1, 1);">[Busy]</button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="btn btn-light" id="changeLED" data-id="3" style="color: rgb(0, 0, 178);" >[Available]</button>
+                      </li>
+                    <li class="nav-item">
+                        <button class="btn btn-info" id="changeLED" data-id="1" style="color: rgb(90, 191, 254);">[Thirsty/Hungry]</button>
+                      </li>
+                      <li class="nav-item">
+                          <button class="btn btn-success" id="changeLED" data-id="4" style="color: rgb(188, 182, 77);">[On A Call]</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="btn btn-dark" id="changeLED" data-id="0" style="color: rgb(130, 127, 127); ">[Turn Off]</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="btn btn-info" id="changeLED" data-id="-1" style="color: black';">[Custom Colors]</button>
+                        </li>
+                        <li>
+                          <span id="result" class="badge badge-primary"></span>
+                        </li>
+                        <li class="nav-item">
+                          &nbsp;Top&nbsp;&nbsp;
+                          <input type="color" id="top" name="top" value="#00ff00">
+                        </li>
+                        <li class="nav-item">
+                          &nbsp;Bottom&nbsp;&nbsp;
+                          <input type="color" id="bottom" name="bottom" value="#ff0000"><br/>
+                        </li>
+                      </ul>
+                  </div>
+                </div>
+              </nav>    
           </div>
         </div>
-      </nav>    
     </div>
-</div>
-</div>
-<div class="container ufo-container">
-    <div class="row">
-      <div class="col" id="col-top">
-        <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-top">
-        </svg>
-      </div>
-      <div class="col" id="col-bottom">
-        <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-bottom">
-        </svg>
-      </div>
+    <div class="container ufo-container">
+        <div class="row">
+          <div class="col" id="col-top">
+            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-top">
+            </svg>
+          </div>
+          <div class="col" id="col-bottom">
+            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-bottom">
+            </svg>
+          </div>
+        </div>
     </div>
-</div>
 
-<!-- Page Content -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-<script>   
-  $(document).ready(function()
-  {
-      console.log("ready");
-      var topclr = $('#top');
-      var bottomclr = $('#bottom');
-      var urls = ["api?top_init&bottom_init&logo=000000|000000|000000|000000",
-            "api?logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw",
-            "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
-            "api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
-            "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"];
-      var tclrs = ["000000","ffffff","ff0000","ffffff","ff0000"];
-      var bclrs = ["000000","ffffff","ff0000","ffffff","00ff00"];
-      var baseUrl = "https://ufo/";
-      var r = document.getElementById("result");
-  
-      console.log("ready.");
-      $("#changeLED").on('click', function(e){
-        console.log("ready..");
-        e.preventDefault();
-        var id = parseInt($(this).attr('data-id'));
-        r.class = "badge badge-primary";
-        var useApi = false;
-        r.innerHTML = "sending";
-        console.log("triggered");
-        var uri = null;    
-        if (id == -1)
-        {
-          uri = baseUrl + "api?top_init&bottom_init&top_bg=" + topclr.val().substr(1,6) + "&bottom_bg=" + bottomclr.val().substr(1,6)
-        } else {
-          uri = baseUrl + urls[parseInt(id)];
-        }
-        /*
-        console.log(uri);
-        if (useApi) {
-            $.ajax({
-                url:  uri,
-                type: "GET",
-                success: function (result) {
-                    topclr.val("#"+tclrs[id]);
-                    bottomclr.val("#"+bclrs[id]);      
-                    r.class = "badge badge-success";
-                    r.innerHTML = "sent";    
-                },
-                error: function (error) {
-                    r.class = "badge badge-danger";
-                    r.innerHTML = "failed";        
-                }
-            })    
-        }
-        */
-        console.log("changing ufo");
+  <!-- Page Content -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script>   
+    $(document).ready(function()
+    {
+        console.log("ready");
+        
+    
+        console.log("ready.");
+        $(".navbar-nav #changeLED").on('click', function(e){
+          changeLEDs(e,$(this));
+        });
 
-        makeUFO('top', '#000000', '#cccccc', topclr.val().substr(0,6) , 6.4, 6.659, "top",40);
+        makeUFO('top', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top",40);
         makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
-        makeUFO('bottom', '#000000', '#cccccc', bottomclr.val().substr(0,6) , 6.4, 6.659, "top",40);
-      });
 
-      makeUFO('top', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top",40);
-      makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+        makeUFO('bottom', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top", 40);
+        //makeLogo('bottom',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+
+    });
+
+    function changeColors(id, tc, bc){
+      if (id != -1){      
+        document.getElementById("top").value = "#"+ tclrs[id];
+        document.getElementById("bottom").value = "#"+ bclrs[id];
+      }
+    }
+
+    function postAPI(id){
+      
+      var uri;
+      if (id == -1)
+      {
+        uri = baseUrl + "api?top_init&bottom_init&top_bg=" + $('#top').val().substr(1,6) + "&bottom_bg=" + $('#bottom').val().substr(1,6);
+      } else {
+        uri = baseUrl + urls[parseInt(id)];
+      }
+     
+      console.log(uri);
+      
+          $.ajax({
+              url:  uri,
+              type: "GET",
+              success: function (result) {
+                  $('#top').value = "#" + tc[id];
+                  $('#bottom').value = "#" + bc[id];      
+                  r.class = "badge badge-success";
+                  r.innerHTML = "sent";    
+              },
+              error: function (error) {
+                  r.class = "badge badge-danger";
+                  r.innerHTML = "failed";        
+              }
+          })
+    }
+
+    function changeLEDs(e, element){
+      e.preventDefault();
+      var id = parseInt(element.attr('data-id'));
+      changeColors(id);
+      console.log("ready..");
+      r.class = "badge badge-primary";
+      var useApi = false;
+      r.innerHTML = "sending";
+      console.log("triggered");
+      
+      postAPI(id);
  
-      makeUFO('bottom', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top", 40);
-      //makeLogo('bottom',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+      console.log("changing ufo");
 
-    })
+      console.log(topclr.val());
+      console.log(bottomclr.val());
 
+      makeUFO('top', '#000000', '#e0e0e0',topclr.val(), 6.4, 6.659, "top",40);
+      makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+      makeUFO('bottom', '#000000', '#e0e0e0', bottomclr.val() , 6.4, 6.659, "top",40);
+
+      r.innerHTML = "";
+    }
     function removeAllChildNodes(parent) {
        while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -256,9 +272,9 @@
         div.appendChild(svg);
 
     }
-
         
     function makeLogo(id, t,l,b,r,colors){
+
         var svg = document.getElementById("ufo-"+id);
         var p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
         var pts = "{{xy1}} {{xy2}} {{xy3}} {{xy4}} ";
@@ -321,6 +337,18 @@
 
     }
 
+    var topclr = $('#top');
+    var bottomclr = $('#bottom');
+    var urls = ["api?top_init&bottom_init&logo=000000|000000|000000|000000",
+          "api?logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw",
+          "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
+          "api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
+          "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"];
+    var tclrs = ["c9c9c9","ffffff","ff0000","ffffff","ff0000"];
+    var bclrs = ["c9c9c9","ffffff","ff0000","ffffff","00ff00"];
+    var baseUrl = "https://ufo/";
+    var r = document.getElementById("result");
+    
 
 </script>
 </body>
