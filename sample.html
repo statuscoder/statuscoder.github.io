@@ -18,6 +18,9 @@
           margin-top: 80px;
           background-color: dimgrey;
       }
+      .col-result span {
+        text-align: left;
+      }
 
       .chart-text {
         font: 16px/1.4em "Montserrat", Arial, sans-serif;
@@ -111,12 +114,14 @@
             </svg>
           </div>
         </div>
-        <div class="row">
-          <div class="col" id="col-result">
-            <span id="result" class="badge badge-primary">Result Window</span>
-          </div>
-        </div>  
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col" id="col-result">
+          <span id="result">Result Window</span>
+        </div>
+      </div>  
+  </div>
 
   <!-- Page Content -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -167,12 +172,11 @@
               success: function (result) {
                   $('#top').value = "#" + tc[id];
                   $('#bottom').value = "#" + bc[id];      
-                  r.class = "badge badge-success";
-                  r.innerHTML = "Successfully changed</br>" + r.innerHTML;                  
+                  //r.innerHTML = "Successfully changed</br>" + r.innerHTML;                  
               },
               error: function (error) {
-                  r.class = "badge badge-danger";
-                  r.innerHTML = "Connection failed.</br>" + r.innerHTML;
+                  
+                  //r.innerHTML = "Connection failed." + error + "</br>" + r.innerHTML;
               }   
           });
     }
@@ -181,7 +185,6 @@
       e.preventDefault();
       var id = parseInt(element.attr('data-id'));
       changeColors(id);
-      r.class = "badge badge-primary";
       var useApi = false;
       
       postAPI(id);
