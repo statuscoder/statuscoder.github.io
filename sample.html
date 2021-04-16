@@ -56,7 +56,7 @@
           <div class="col">    
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                 <div class="container">
-                  <a class="navbar-brand" href="#">Gary's Dynatrace UFO Playground</a>
+                  <a class="navbar-brand" href="#">Gary's UFO Helper</a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
@@ -85,9 +85,6 @@
                         <li class="nav-item">
                           <button class="btn btn-info" id="changeLED" data-id="-1" style="color: black';">[Custom Colors]</button>
                         </li>
-                        <li>
-                          <span id="result" class="badge badge-primary"></span>
-                        </li>
                         <li class="nav-item">
                           &nbsp;Top&nbsp;&nbsp;
                           <input type="color" id="top" name="top" value="#00ff00">
@@ -96,7 +93,7 @@
                           &nbsp;Bottom&nbsp;&nbsp;
                           <input type="color" id="bottom" name="bottom" value="#ff0000"><br/>
                         </li>
-                      </ul>
+                      </ul>                      
                   </div>
                 </div>
               </nav>    
@@ -105,16 +102,24 @@
     </div>
     <div class="container ufo-container">
         <div class="row">
-          <div class="col" id="col-top">
-            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-top">
-            </svg>
-          </div>
           <div class="col" id="col-bottom">
             <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-bottom">
             </svg>
           </div>
+          <div class="col" id="col-top">
+            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-top">
+            </svg>
+          </div>
         </div>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col" id="col-result">
+          <span id="result" class="badge badge-primary">Result Window</span>
+        </div>
+      </div>
+    </div>
+
 
   <!-- Page Content -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -155,8 +160,10 @@
         uri = baseUrl + urls[parseInt(id)];
       }
      
+      r.innerHTML += url + '</br>' + r.innerHTML;
+
       console.log(uri);
-      
+
           $.ajax({
               url:  uri,
               type: "GET",
@@ -164,12 +171,12 @@
                   $('#top').value = "#" + tc[id];
                   $('#bottom').value = "#" + bc[id];      
                   r.class = "badge badge-success";
-                  r.innerHTML = "sent";    
+                  r.innerHTML += "Successfully changed</br>" + r.innerHTML;                  
               },
               error: function (error) {
                   r.class = "badge badge-danger";
-                  r.innerHTML = "failed";        
-              }
+                  r.innerHTML += "Connection failed.</br>" + r.innerHTML;                  
+                  
           })
     }
 
@@ -177,11 +184,8 @@
       e.preventDefault();
       var id = parseInt(element.attr('data-id'));
       changeColors(id);
-      console.log("ready..");
       r.class = "badge badge-primary";
       var useApi = false;
-      r.innerHTML = "sending";
-      console.log("triggered");
       
       postAPI(id);
  
@@ -190,11 +194,10 @@
       console.log(topclr.val());
       console.log(bottomclr.val());
 
-      makeUFO('top', '#000000', '#e0e0e0',topclr.val(), 6.4, 6.659, "top",40);
-      makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
-      makeUFO('bottom', '#000000', '#e0e0e0', bottomclr.val() , 6.4, 6.659, "top",40);
+      makeUFO('bottom', '#000000', '#e0e0e0',bottomclr.val(), 6.4, 6.659, "top",40);
+      makeLogo('bottom',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+      makeUFO('top', '#000000', '#e0e0e0', topclr.val() , 6.4, 6.659, "top",40);
 
-      r.innerHTML = "";
     }
     function removeAllChildNodes(parent) {
        while (parent.firstChild) {
@@ -344,9 +347,9 @@
           "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
           "api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
           "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"];
-    var tclrs = ["c9c9c9","ffffff","ff0000","ffffff","ff0000"];
-    var bclrs = ["c9c9c9","ffffff","ff0000","ffffff","00ff00"];
-    var baseUrl = "https://ufo/";
+    var bclrs = ["c9c9c9","ffffff","ff0000","ffffff","ff0000"];
+    var tclrs = ["c9c9c9","ffffff","ff0000","ffffff","00ff00"];
+    var baseUrl = "https://ufo217.ddns.net/"; //"https://ufo/";
     var r = document.getElementById("result");
     
 
