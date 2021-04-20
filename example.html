@@ -177,9 +177,13 @@
                 <form class="form-inline mt-2 mt-md-0">
                   <label for="morph-motion">Morph Params: </label>
                     &nbsp;&nbsp;
+                  <input type="checkbox" class="form-control input-checkbox" id="morph-check">
+                    &nbsp;&nbsp;
                   <input type="text" class="form-control input-text motion-params" id="morph-motion" placeholder="Example: top_morph=80|8">
                     &nbsp;&nbsp;
                   <label for="whirl-motion">Whirl Params: </label>
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="form-control input-checkbox" id="whirl-check">
                     &nbsp;&nbsp;
                   <input type="text" class="form-control input-text motion-params" id="whirl-motion" placeholder="Example: top_whirl=240">
                 </form>
@@ -271,6 +275,7 @@
     var r = document.getElementById("result");
 
     $(document).ready(function() {
+        $("#api-url").value = getCookie('api-url');
         $("#sendToUFO").on('click', function(e){
           buildAPICall(e,$(this));
         });
@@ -379,22 +384,25 @@
       //set internal vars
       var obj = document.getElementById('pre-set-params');
       var id = obj.options[obj.selectedIndex].text;
+      var url = $('#api-url').val() + "?";
 
-      var url = getCookie('api-url') + "?";
+      //var url = getCookie('api-url') + "?";
       console.log(url);
       var params = "";
-      params += $('#reset-top').checked ? 'top_init&' : '';
-      params += $('#reset-bottom').checked ? 'bottom_init&' : '';
-      params += $('#reset-logo').checked ? 'logo_reset&' : '';
-      params += $('#top-bg').val().length > 0 ? 'top_bg=' + $('#top-bg').val().substr(1,6) + '&' : ''; 
-      params += $('#top-fg').val().length > 0 ? 'top=' + $('#top-fg').val().substr(1,6) + '&' : ''; 
-      params += $('#btm-bg').val().length > 0 ? 'bottom_bg=' + $('#btm-bg').val().substr(1,6) + '&' : ''; 
-      params += $('#btm-fg').val().length > 0 ? 'bottom=' + $('#btm-fg').val().substr(1,6) + '&' : ''; 
-      params += $('#morph-motion').val().length > 0 ? $('#morph-motion').val() + '&' : ''; 
-      params += $('#whirl-motion').val().length > 0 ? $('#whirl-motion').val() + '&' : ''; 
+      params += document.querySelector("#reset-top").checked == true ? 'top_init&' : '';
+      params += document.querySelector("#reset-bottom").checked == true ? 'bottom_init&' : '';
+      params += document.querySelector("#reset-logo").checked == true ? 'logo_reset&' : '';
+      params += $("#top-bg").val().length > 0 ? 'top_bg=' + $('#top-bg').val().substr(1,6) + '&' : ''; 
+      params += $("#top-fg").val().length > 0 ? 'top=' + $('#top-fg').val().substr(1,6) + '&' : ''; 
+      params += $("#btm-bg").val().length > 0 ? 'bottom_bg=' + $('#btm-bg').val().substr(1,6) + '&' : ''; 
+      params += $("#btm-fg").val().length > 0 ? 'bottom=' + $('#btm-fg').val().substr(1,6) + '&' : ''; 
+      params += (document.querySelector("#morph-check").checked == true && $("#morph-motion").val().length > 0) ? $('#morph-motion').val() + '&' : ''; 
+      params += (document.querySelector("#whirl-check").checked == true && $("#whirl-motion").val().length > 0) ? $('#whirl-motion').val() + '&' : ''; 
+
+      params = params.substr(0,params.length-1);
 
       console.log("changing ufo");
-
+      
       changeColors(id);
       postAPI(url, params, id);
  
