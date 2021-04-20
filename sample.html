@@ -14,8 +14,21 @@
 
       @import url(https://fonts.googleapis.com/css?family=Montserrat:400);
 
+      .data-container {
+          margin-top: 20px;
+          background-color: #ffffff;
+      }
+
+      .api-path {
+        width: 400px!important;
+      }
+
+      .motion-params {
+        width: 265px!important;
+      }
+
       .ufo-container {
-          margin-top: 80px;
+          margin-top: 20px;
           background-color: dimgrey;
       }
       .col-result span {
@@ -54,52 +67,137 @@
     </style>
   </head>
   <body>
+  <!--
+
     <div class="container">
+      <div class="row">
+        <div class="col">    
+          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+              <div class="container">
+                <a class="navbar-brand" href="#">Gary's UFO Helper</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ml-auto" style="background-color: white;">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">
+                            <span class="sr-only">(current)</span>
+                          </a>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-danger" id="changeLED" data-id="2" style="color: rgb(105, 1, 1);">[Busy]</button>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-light" id="changeLED" data-id="3" style="color: rgb(0, 0, 178);" >[Available]</button>
+                    </li>
+                  <li class="nav-item">
+                      <button class="btn btn-info" id="changeLED" data-id="1" style="color: rgb(90, 191, 254);">[Thirsty/Hungry]</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-success" id="changeLED" data-id="4" style="color: rgb(188, 182, 77);">[On A Call]</button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="btn btn-dark" id="changeLED" data-id="0" style="color: rgb(130, 127, 127); ">[Turn Off]</button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="btn btn-info" id="changeLED" data-id="-1" style="color: black';">[Custom Colors]</button>
+                      </li>
+                      <li class="nav-item">
+                        &nbsp;Top&nbsp;&nbsp;
+                        <input type="color" id="top" name="top" value="#00ff00">
+                      </li>
+                      <li class="nav-item">
+                        &nbsp;Bottom&nbsp;&nbsp;
+                        <input type="color" id="bottom" name="bottom" value="#ff0000"><br/>
+                      </li>
+                      <li class="nav-item">
+                        &nbsp;Extram&nbsp;&nbsp;
+                        <input type="text" id="extra" name="extra" value="&top_morph=80|8" placeholder="Extra stuff"><br/>
+                      </li>
+                    </ul>                      
+                </div>
+              </div>
+            </nav>    
+        </div>
+      </div>
+    </div>
+-->
+      
+    <div class="container data-container">
         <div class="row">
           <div class="col">    
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-                <div class="container">
-                  <a class="navbar-brand" href="#">Gary's UFO Helper</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                  <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto" style="background-color: white;">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="#">
-                              <span class="sr-only">(current)</span>
-                            </a>
-                      </li>
-                      <li class="nav-item">
-                        <button class="btn btn-danger" id="changeLED" data-id="2" style="color: rgb(105, 1, 1);">[Busy]</button>
-                      </li>
-                      <li class="nav-item">
-                        <button class="btn btn-light" id="changeLED" data-id="3" style="color: rgb(0, 0, 178);" >[Available]</button>
-                      </li>
-                    <li class="nav-item">
-                        <button class="btn btn-info" id="changeLED" data-id="1" style="color: rgb(90, 191, 254);">[Thirsty/Hungry]</button>
-                      </li>
-                      <li class="nav-item">
-                          <button class="btn btn-success" id="changeLED" data-id="4" style="color: rgb(188, 182, 77);">[On A Call]</button>
-                        </li>
-                        <li class="nav-item">
-                          <button class="btn btn-dark" id="changeLED" data-id="0" style="color: rgb(130, 127, 127); ">[Turn Off]</button>
-                        </li>
-                        <li class="nav-item">
-                          <button class="btn btn-info" id="changeLED" data-id="-1" style="color: black';">[Custom Colors]</button>
-                        </li>
-                        <li class="nav-item">
-                          &nbsp;Top&nbsp;&nbsp;
-                          <input type="color" id="top" name="top" value="#00ff00">
-                        </li>
-                        <li class="nav-item">
-                          &nbsp;Bottom&nbsp;&nbsp;
-                          <input type="color" id="bottom" name="bottom" value="#ff0000"><br/>
-                        </li>
-                      </ul>                      
-                  </div>
-                </div>
-              </nav>    
+            <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+              <h5 class="my-0 mr-md-auto font-weight-normal">Pre-set Params</h5>
+              <form class="form-inline mt-2 mt-md-0">
+                <label for="api-url">Params: </label>
+                &nbsp;&nbsp;
+                <select id="pre-set-params"></select>
+              </form>
+            </div>
+            <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+              <h5 class="my-0 mr-md-auto font-weight-normal">Reset Options</h5>
+                <form class="form-inline mt-2 mt-md-0">
+                <label for="reset-top">Reset Top Row: </label>
+                &nbsp;&nbsp;
+                <input type="checkbox" class="form-control input-checkbox" id="reset-top">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="reset-bottom">Reset Bottom Row: </label>
+                &nbsp;&nbsp;
+                <input type="checkbox" class="form-control input-checkbox" id="reset-bottom">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="reset-bottom">Reset Logo: </label>
+                &nbsp;&nbsp;
+                <input type="checkbox" class="form-control input-checkbox" id="reset-logo">
+                &nbsp;&nbsp;
+              </form>
+            </div>   
+            <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+              <h5 class="my-0 mr-md-auto font-weight-normal">Ring Colors</h5>
+                <form class="form-inline mt-2 mt-md-0">
+                  <label for="top-fg">Top Foreground: </label>
+                  &nbsp;&nbsp;
+                  <input type="color" id="top-fg" name="top-fg" value="#00ff00">
+                  &nbsp;&nbsp;
+                  <label for="top-bg">Top Background: </label>
+                  &nbsp;&nbsp;
+                  <input type="color" id="top-bg" name="top-bg" value="#00ff00">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <label for="btm-fg">Bottom Foreground: </label>
+                  &nbsp;&nbsp;
+                  <input type="color" id="btm-fg" name="btm-fg" value="#00ff00">
+                  &nbsp;&nbsp;
+                  <label for="btm-bg">Bottom Background: </label>
+                  &nbsp;&nbsp;
+                  <input type="color" id="btm-bg" name="btm-bg" value="#00ff00">
+                </form>
+            </div>   
+            <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+              <h5 class="my-0 mr-md-auto font-weight-normal">Motion Options</h5>
+                <form class="form-inline mt-2 mt-md-0">
+                  <label for="morph-motion">Morph Params: </label>
+                    &nbsp;&nbsp;
+                  <input type="text" class="form-control input-text motion-params" id="morph-motion" placeholder="Example: top_morph=80|8">
+                    &nbsp;&nbsp;
+                  <label for="whirl-motion">Whirl Params: </label>
+                    &nbsp;&nbsp;
+                  <input type="text" class="form-control input-text motion-params" id="whirl-motion" placeholder="Example: top_whirl=240">
+                </form>
+            </div>   
+            <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+              <h5 class="my-0 mr-md-auto font-weight-normal">Connection to UFO</h5>
+                <form class="form-inline mt-2 mt-md-0">
+                  <label for="api-url">API Path: </label>
+                  &nbsp;&nbsp;
+                  <input type="text" class="form-control input-text api-path" id="api-url" placeholder="https://<ufourl>/api" onBlur="setUrlCookie()">
+                    &nbsp;&nbsp;
+                  <label for="reset-top">Connection Status: </label>
+                    &nbsp;&nbsp;
+                  <input type="color" id="net-status" name="net-status" value="#ffffff" disabled>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button class="btn btn-success" id="sendToUFO" data-id="-1">Send to UFO</button>
+                </form>
+            </div>   
           </div>
         </div>
     </div>
@@ -121,84 +219,191 @@
           <span id="result">Result Window</span>
         </div>
       </div>  
-  </div>
+    </div>
 
   <!-- Page Content -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-  <script>   
-    $(document).ready(function()
-    {
-        console.log("ready");
-        
+  <script>
+
+    //global vars
+    //page elements
+    var obj_top_fg = $('#top-fg');
+    var obj_btm_fg = $('#btm-fg');
+    var obj_presets = $('#pre-set-params');
+
+    //preset values
+    var pre_set_params = [
+      "None|",
+      "Turn Off|api?top_init&bottom_init&logo=000000|000000|000000|000000",
+      "Thirsty|api?logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw",
+      "Busy|api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
+      "Available|api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
+      "On A Call|api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00",
+    ];
+
+    var presets = {
+      "NONE" : 
+        { url: ""},
+      "Turn Off UFO": 
+        { url: "top_init&bottom_init&logo=000000|000000|000000|000000"},
+      "Two color with ccw whirl": 
+        { url: "logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw"},
+      "All red": 
+        { url: "logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000"},
+      "All white": 
+        { url: "logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff"},
+      "Top Red, Bottom Green":
+        { url: "logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"},
+    };
+
+    /********
+    **
+    **  SET YOUR CUSTOM PRE SETS HERE
+    **
+    ********/
     
-        console.log("ready.");
-        $(".navbar-nav #changeLED").on('click', function(e){
-          changeLEDs(e,$(this));
+    var bclrs = ["c9c9c9","ffffff","ff0000","ffffff","ff0000"];
+    var tclrs = ["c9c9c9","ffffff","ff0000","ffffff","00ff00"];
+
+    //var baseUrl = "https://ufo217.ddns.net/"; //"https://ufo/";
+
+    var r = document.getElementById("result");
+
+    $(document).ready(function() {
+        $("#sendToUFO").on('click', function(e){
+          buildAPICall(e,$(this));
         });
-
-        makeUFO('top', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top",40);
-        makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
-
-        makeUFO('bottom', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top", 40);
-        //makeLogo('bottom',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
-
+        populateSelect();
+        setupUFO();
     });
 
+    function setUrlCookie(){
+      setCookie('api-url',$('#api-url').val(),90);
+    }
+
+    function populateSelect() {
+      console.log('setOptions');
+
+      pre_set = document.getElementById('pre-set-params');
+      for (key in presets){
+        for (subkey in presets[key])
+        {
+          var opt = document.createElement("option");
+          opt.value = subkey;
+          opt.text = key;
+          pre_set.add(opt,null);
+        }
+      }
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      console.log('setCookie');
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      var cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      console.log(cookie);
+      document.cookie = cookie;
+    }
+
+    function getCookie(cname) {
+      console.log('getCookie');
+
+      var name = cname + "=";
+      var cookie = "";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          cookie = c.substring(name.length, c.length);
+          return cookie;
+        }
+      }
+      console.log(cookie);
+      return cookie;
+    }
+
+    function setupUFO()
+    {
+      console.log('setupUFO');
+      makeUFO('top', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top",40);
+      makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+      makeUFO('bottom', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top", 40);
+    }
+
     function changeColors(id, tc, bc){
-      if (id != -1){      
-        document.getElementById("top").value = "#"+ tclrs[id];
-        document.getElementById("bottom").value = "#"+ bclrs[id];
+      console.log('changeColors');
+      if (id != -1){    
+        var params = presets[id];
+        console.log("Change to " + params);
+
+        //top_fg.value = "#"+ tclrs[id];
+        //btm_fg.value = "#"+ tclrs[id];
       }
     }
 
-    function postAPI(id){
-      
-      var uri;
-      if (id == -1)
-      {
-        uri = baseUrl + "api?top_init&bottom_init&top_bg=" + $('#top').val().substr(1,6) + "&bottom_bg=" + $('#bottom').val().substr(1,6);
-      } else {
-        uri = baseUrl + urls[parseInt(id)];
+    function postAPI(url, params, id){
+      console.log('postAPI');
+      if (id != 'NONE') {
+        params = presets[id];
       }
-     
-      r.innerHTML = uri + '</br>' + r.innerHTML;
 
-      console.log(uri);
 
-          $.ajax({
-              url:  uri,
-              type: "GET",
-              success: function (result) {
-                  $('#top').value = "#" + tc[id];
-                  $('#bottom').value = "#" + bc[id];      
-                  //r.innerHTML = "Successfully changed</br>" + r.innerHTML;                  
-              },
-              error: function (error) {
-                  
-                  //r.innerHTML = "Connection failed." + error + "</br>" + r.innerHTML;
-              }   
-          });
+      url = url + params;
+      console.log(url);
+      r.innerHTML = url + '</br>' + r.innerHTML;
+
+      $.ajax({
+          url:  url,
+          type: "GET",
+          success: function (result) {
+              //$('#top').value = "#" + tc[id];
+              //$('#bottom').value = "#" + bc[id];      
+              //r.innerHTML = "Successfully changed</br>" + r.innerHTML;                  
+          },
+          error: function (error) {
+              
+              //r.innerHTML = "Connection failed." + error + "</br>" + r.innerHTML;
+          }   
+      });
     }
 
-    function changeLEDs(e, element){
+    function buildAPICall(e, element){
       e.preventDefault();
-      var id = parseInt(element.attr('data-id'));
-      changeColors(id);
-      var useApi = false;
-      
-      postAPI(id);
- 
+      console.log('buildAPICall');
+      //set internal vars
+      var obj = document.getElementById('pre-set-params');
+      var id = obj.options[obj.selectedIndex].text;
+
+      var url = getCookie('api-url') + "?";
+      console.log(url);
+      var params = "";
+      params += $('#reset-top').checked ? 'top_init&' : '';
+      params += $('#reset-bottom').checked ? 'bottom_init&' : '';
+      params += $('#reset-logo').checked ? 'logo_reset&' : '';
+      params += $('#top-bg').val().length > 0 ? 'top_bg=' + $('#top-bg').val().substr(1,6) + '&' : ''; 
+      params += $('#top-fg').val().length > 0 ? 'top=' + $('#top-fg').val().substr(1,6) + '&' : ''; 
+      params += $('#btm-bg').val().length > 0 ? 'bottom_bg=' + $('#btm-bg').val().substr(1,6) + '&' : ''; 
+      params += $('#btm-fg').val().length > 0 ? 'bottom=' + $('#btm-fg').val().substr(1,6) + '&' : ''; 
+      params += $('#morph-motion').val().length > 0 ? $('#morph-motion').val() + '&' : ''; 
+      params += $('#whirl-motion').val().length > 0 ? $('#whirl-motion').val() + '&' : ''; 
+
       console.log("changing ufo");
 
-      console.log(topclr.val());
-      console.log(bottomclr.val());
-
-      makeUFO('bottom', '#000000', '#e0e0e0',bottomclr.val(), 6.4, 6.659, "top",40);
+      changeColors(id);
+      postAPI(url, params, id);
+ 
+      makeUFO('bottom', '#000000', '#e0e0e0',$('#btm_fg').val(), 6.4, 6.659, "top",40);
       makeLogo('bottom',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
-      makeUFO('top', '#000000', '#e0e0e0', topclr.val() , 6.4, 6.659, "top",40);
+      makeUFO('top', '#000000', '#e0e0e0', $('#top_fg').val(), 6.4, 6.659, "top",40);
 
     }
+
     function removeAllChildNodes(parent) {
        while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -206,6 +411,7 @@
     }    
 
     function makeUFO(id, insidecolor, gapcolor, ledcolor, dashlength, rotationoffset, label, size){
+        console.log('makeUFO');
         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute('class','donut');
         svg.setAttribute('id',"ufo-"+id);
@@ -277,7 +483,7 @@
     }
         
     function makeLogo(id, t,l,b,r,colors){
-
+      console.log('makeLogo');
         var svg = document.getElementById("ufo-"+id);
         var p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
         var pts = "{{xy1}} {{xy2}} {{xy3}} {{xy4}} ";
@@ -292,7 +498,6 @@
         xy4 = r + "," + t; 
         t_pts = pts;
         t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);
-        console.log(t_pts);            
         p.setAttribute('points', t_pts);
         p.setAttribute('fill',colors[0]);
         svg.appendChild(p);
@@ -306,7 +511,6 @@
         xy4 = l+","+b; 
         t_pts = pts;
         t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
-        console.log(t_pts);            
         p.setAttribute('points', t_pts);
         p.setAttribute('fill',colors[1]);
         svg.appendChild(p);
@@ -320,7 +524,6 @@
         xy4 = (r-sl)+","+b; 
         t_pts = pts;
         t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
-        console.log(t_pts);            
         p.setAttribute('points', t_pts);
         p.setAttribute('fill',colors[2]);
         svg.appendChild(p);
@@ -333,25 +536,11 @@
         xy4 = r+","+(b-sl); 
         t_pts = pts;
         t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
-        console.log(t_pts);            
         p.setAttribute('points', t_pts);
         p.setAttribute('fill',colors[3]);
         svg.appendChild(p);
 
-    }
-
-    var topclr = $('#top');
-    var bottomclr = $('#bottom');
-    var urls = ["api?top_init&bottom_init&logo=000000|000000|000000|000000",
-          "api?logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw",
-          "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
-          "api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
-          "api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"];
-    var bclrs = ["c9c9c9","ffffff","ff0000","ffffff","ff0000"];
-    var tclrs = ["c9c9c9","ffffff","ff0000","ffffff","00ff00"];
-    var baseUrl = "https://ufo217.ddns.net/"; //"https://ufo/";
-    var r = document.getElementById("result");
-    
+    }    
 
 </script>
 </body>
