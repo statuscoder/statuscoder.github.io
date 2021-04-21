@@ -220,7 +220,7 @@
     <div class="container">
       <div class="row">
         <div class="col" id="col-result">
-          <span id="result">Result Window</span>
+          <span id="result"></span>
         </div>
       </div>  
     </div>
@@ -356,7 +356,7 @@
     function postAPI(url, params, id){
       console.log('postAPI');
       if (id != 'NONE') {
-        params = presets[id][0];
+        params = presets[id].url;
       }
 
 
