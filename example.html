@@ -19,6 +19,18 @@
           background-color: #ffffff;
       }
 
+      .col-blue {
+        background-color: dodgerblue;
+      }
+
+      .col-purple {
+        background-color:mediumpurple;
+      }
+
+      .col-green {
+        background-color:palegreen;
+      }
+
       .api-path {
         width: 400px!important;
       }
@@ -126,7 +138,7 @@
       
     <div class="container data-container">
         <div class="row">
-          <div class="col">    
+          <div class="col col-blue">    
             <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
               <h5 class="my-0 mr-md-auto font-weight-normal">Pre-set Params</h5>
               <form class="form-inline mt-2 mt-md-0">
@@ -135,6 +147,9 @@
                 <select id="pre-set-params"></select>
               </form>
             </div>
+        </div>
+        <div class="row">
+            <div class="col col-purple">          
             <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
               <h5 class="my-0 mr-md-auto font-weight-normal">Reset Options</h5>
                 <form class="form-inline mt-2 mt-md-0">
@@ -187,7 +202,10 @@
                     &nbsp;&nbsp;
                   <input type="text" class="form-control input-text motion-params" id="whirl-motion" placeholder="Example: top_whirl=240">
                 </form>
-            </div>   
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-green">
             <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
               <h5 class="my-0 mr-md-auto font-weight-normal">Connection to UFO</h5>
                 <form class="form-inline mt-2 mt-md-0">
