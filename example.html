@@ -356,7 +356,7 @@
     function postAPI(url, params, id){
       console.log('postAPI');
       if (id != 'NONE') {
-        params = presets[id];
+        params = presets[id][url];
       }
 
 
