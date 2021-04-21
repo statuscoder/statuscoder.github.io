@@ -353,12 +353,8 @@
       }
     }
 
-    function postAPI(url, params, id){
+    function postAPI(url, params){
       console.log('postAPI');
-      if (id != 'NONE') {
-        params = presets[id].url;
-      }
-
 
       url = url + params;
       console.log(url);
@@ -391,22 +387,25 @@
       //var url = getCookie('api-url') + "?";
       console.log(url);
       var params = "";
-      params += document.querySelector("#reset-top").checked == true ? 'top_init&' : '';
-      params += document.querySelector("#reset-bottom").checked == true ? 'bottom_init&' : '';
-      params += document.querySelector("#reset-logo").checked == true ? 'logo_reset&' : '';
-      params += $("#top-bg").val().length > 0 ? 'top_bg=' + $('#top-bg').val().substr(1,6) + '&' : ''; 
-      params += $("#top-fg").val().length > 0 ? 'top=' + $('#top-fg').val().substr(1,6) + '&' : ''; 
-      params += $("#btm-bg").val().length > 0 ? 'bottom_bg=' + $('#btm-bg').val().substr(1,6) + '&' : ''; 
-      params += $("#btm-fg").val().length > 0 ? 'bottom=' + $('#btm-fg').val().substr(1,6) + '&' : ''; 
-      params += (document.querySelector("#morph-check").checked == true && $("#morph-motion").val().length > 0) ? $('#morph-motion').val() + '&' : ''; 
-      params += (document.querySelector("#whirl-check").checked == true && $("#whirl-motion").val().length > 0) ? $('#whirl-motion').val() + '&' : ''; 
-
-      params = params.substr(0,params.length-1);
+      if (id != 'NONE') {
+        params = presets[id].url;
+      } else {
+        params += document.querySelector("#reset-top").checked == true ? 'top_init&' : '';
+        params += document.querySelector("#reset-bottom").checked == true ? 'bottom_init&' : '';
+        params += document.querySelector("#reset-logo").checked == true ? 'logo_reset&' : '';
+        params += $("#top-bg").val().length > 0 ? 'top_bg=' + $('#top-bg').val().substr(1,6) + '&' : ''; 
+        params += $("#top-fg").val().length > 0 ? 'top=' + $('#top-fg').val().substr(1,6) + '&' : ''; 
+        params += $("#btm-bg").val().length > 0 ? 'bottom_bg=' + $('#btm-bg').val().substr(1,6) + '&' : ''; 
+        params += $("#btm-fg").val().length > 0 ? 'bottom=' + $('#btm-fg').val().substr(1,6) + '&' : ''; 
+        params += (document.querySelector("#morph-check").checked == true && $("#morph-motion").val().length > 0) ? $('#morph-motion').val() + '&' : ''; 
+        params += (document.querySelector("#whirl-check").checked == true && $("#whirl-motion").val().length > 0) ? $('#whirl-motion').val() + '&' : ''; 
+        params = params.substr(0,params.length-1);
+      }      
 
       console.log("changing ufo");
       
       changeColors(id);
-      postAPI(url, params, id);
+      postAPI(url, params);
  
       makeUFO('bottom', '#000000', '#e0e0e0',$('#btm_fg').val(), 6.4, 6.659, "top",40);
       makeLogo('bottom',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
