@@ -275,7 +275,7 @@
     var r = document.getElementById("result");
 
     $(document).ready(function() {
-        $("#api-url").value = getCookie('api-url');
+        $("#api-url").value = getCookie('api-url').value;
         $("#sendToUFO").on('click', function(e){
           buildAPICall(e,$(this));
         });
