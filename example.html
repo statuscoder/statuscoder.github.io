@@ -364,9 +364,11 @@
       console.log(url);
       r.innerHTML = url + '</br>' + r.innerHTML;
 
+      console.log('Ajax');
       $.ajax({
           url:  url,
           type: "GET",
+/*
           headers: { 
             "Access-Control-Allow-Origin": "*", 
             "Access-Control-Allow-Credentials": "true", 
@@ -374,16 +376,20 @@
             "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
             },
           crossDomain: true,
+*/
           success: function (result) {
+            console.log('Success');
+
               //$('#top').value = "#" + tc[id];
               //$('#bottom').value = "#" + bc[id];      
               //r.innerHTML = "Successfully changed</br>" + r.innerHTML;                  
           },
           error: function (error) {
-              
+              console.log('Error');
               //r.innerHTML = "Connection failed." + error + "</br>" + r.innerHTML;
           }   
       }).done(function() {
+          console.log('Done');
           $('api-status').val('#00ff00');
       });
     }
