@@ -16,7 +16,6 @@
 
       .data-container {
           margin-top: 0px;
-          background-color: #ffffff;
       }
 
       .data-container .row .col {
@@ -39,7 +38,6 @@
       }
 
       .row-white {
-        background-color:yellow;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
@@ -78,8 +76,8 @@
         width: 100%;
       }
       #col-bottom, #col-top {
-        height: 400px;
-        width: 50%;
+        height: 100%;
+        width: 100%;
       }
 
       .col-result span {
@@ -114,112 +112,175 @@
         -webkit-transform: translateY(0.7em);
         transform: translateY(0.7em);
       }
+      .full-page {
+          max-width: 100%;
+          min-height: 100%;
+      }
 
+      .pull-left{
+          float: left;
+          width:20%;
+          height: 100%;
+      }
+
+      .left-side{
+          float: left;
+      }
+
+      body {
+        background-color: #eeeeee;
+      }
+      .pull-right {
+          float: right;
+          width:80%;
+          height: 100%;
+          min-height: 100%;
+      }
+
+      .api-calls {
+        width: 1000px;
+        height: 300px;
+        padding: 5px;
+        font-family: Tahoma, sans-serif;
+    }      
     </style>
   </head>
   <body>
-      
-    <div class="container data-container">
-        <div class="row row-white">
-            <div class="col">    
-                <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">Instructions</h5>
-                    <span>Pick a single item from option 'a' or multiple items from option 'b', then add your api url and click 'Send to UFO'</span>
+    <div class="container full-page">
+        <div class="pull-left">
+            <div class="row">
+                <div class="left-side" id="col-bottom">
+                </div>
+            </div>
+            <div class="row">
+                <div class="left-side" id="col-top">
                 </div>
             </div>
         </div>
-        <div class="row row-blue">
-            <div class="col">    
-                <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">a) Pre-set Params</h5>
-                    <form class="form-inline mt-2 mt-md-0">
-                        <label for="api-url">Params: </label>
-                        &nbsp;&nbsp;
-                        <select id="preSetParams"><option value="">NONE</option></select>
-                    </form>
+        <div class="pull-right">
+            <div class="container data-container">
+                <div
+                    ><br/>
+                    <span><strong>Instructions: </span>&nbsp;&nbsp;&nbsp;&nbsp;</strong>Pick a single item from option 'a' or multiple items from option 'b', then add your api url and click 'Send to UFO'</span>
+                    <br/>
+                    <span><strong>Addition help links:</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://www.dynatrace.com/solutions/devops/ufo/get/">UFO DevOps</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://github.com/Dynatrace/ufo">UFO Github Source</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://dynatrace.github.io/ufo/">UFO Github Page</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://github.com/Dynatrace/ufo-esp32">UFO gen2 Source + Help</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <br/>
+                    <br/>
                 </div>
-            </div>
-        </div>
-        <div class="row row-purple">
-            <div class="col">          
-                <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">b) Reset Options</h5>
-                    <form class="form-inline mt-2 mt-md-0">
-                    <label for="reset-top">Reset Top Row: </label>
-                    &nbsp;&nbsp;
-                    <input type="checkbox" class="form-control input-checkbox" id="reset-top">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label for="reset-bottom">Reset Bottom Row: </label>
-                    &nbsp;&nbsp;
-                    <input type="checkbox" class="form-control input-checkbox" id="reset-bottom">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label for="reset-bottom">Reset Logo: </label>
-                    &nbsp;&nbsp;
-                    <input type="checkbox" class="form-control input-checkbox" id="reset-logo">
-                    &nbsp;&nbsp;
-                </form>
-                </div>   
-                <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">b) Ring Colors</h5>
-                    <form class="form-inline mt-2 mt-md-0">
-                    <label for="top-fg"><img src="arrow-up.png" width="25%" height="25%"/> FG: </label>
-                    <input type="color" id="top-fg" name="top-fg" value="#00ff00">
-                    &nbsp;&nbsp;
-                    <input type="text" class="form-control input-text color-text" id="top-fg-text" placeholder="0|15">                    
-                    &nbsp;&nbsp;
-                    <label for="top-bg"><img src="arrow-up.png" width="25%" height="25%"/> BG: </label>
-                    <input type="color" id="top-bg" name="top-bg" value="#00ff00">
-                    &nbsp;&nbsp;
-                    <input type="text" class="form-control input-text color-text" id="top-bg-text" placeholder="0|15">                    
-                    &nbsp;&nbsp;
-                    <label for="btm-fg"><img src="arrow-down.png" width="25%" height="25%"/> FG: </label>
-                    <input type="color" id="btm-fg" name="btm-fg" value="#00ff00">
-                    &nbsp;&nbsp;
-                    <input type="text" class="form-control input-text color-text" id="btm-fg-text" placeholder="0|15">                    
-                    &nbsp;&nbsp;
-                    <label for="btm-bg"><img src="arrow-down.png" width="25%" height="25%"/> BG: </label>
-                    <input type="color" id="btm-bg" name="btm-bg" value="#00ff00">
-                    &nbsp;&nbsp;
-                    <input type="text" class="form-control input-text color-text" id="btm-bg-text" placeholder="0|15">                    
-                    </form>
-                </div>   
-                <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">b) Motion Options</h5>
-                    <form class="form-inline mt-2 mt-md-0">
-                    <label for="morph-motion">Morph Params: </label>
-                        &nbsp;&nbsp;
-                    <input type="checkbox" class="form-control input-checkbox" id="morph-check">
-                        &nbsp;&nbsp;
-                    <input type="text" class="form-control input-text motion-params" id="morph-motion" placeholder="Example: top_morph=80|8">
-                        &nbsp;&nbsp;
-                    <label for="whirl-motion">Whirl Params: </label>
-                        &nbsp;&nbsp;
-                        <input type="checkbox" class="form-control input-checkbox" id="whirl-check">
-                        &nbsp;&nbsp;
-                    <input type="text" class="form-control input-text motion-params" id="whirl-motion" placeholder="Example: top_whirl=240">
-                    </form>
+                <div class="row row-white">
+                    <div class="col">    
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                            <h5 class="my-0 mr-md-auto font-weight-normal">a) Pre-set Params</h5>
+                            <form class="form-inline mt-2 mt-md-0">
+                                <label for="api-url">Params: </label>
+                                &nbsp;&nbsp;
+                                <select id="preSetParams"><option value="">NONE</option></select>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row row-green">
-            <div class="col">
-                <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                <h5 class="my-0 mr-md-auto font-weight-normal">Connect to UFO</h5>
-                    <form class="form-inline mt-2 mt-md-0">
-                    <label for="api-url">API URL: </label>
-                    &nbsp;&nbsp;
-                    <input type="text" class="form-control input-text api-path" id="api-url" placeholder="https://<ufourl>/api" onBlur="setUrlCookie()">
-                        &nbsp;&nbsp;
-                    <label for="reset-top">Connection Status: </label>
-                        &nbsp;&nbsp;
-                    <input type="color" id="api-status" name="api-status" value="#cccccc" disabled>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-success" id="sendToUFO" data-id="-1">Send to UFO</button>
-                    </form>
-                </div>   
-            </div>
+                <div class="row row-white">
+                    <div class="col">          
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                            <h5 class="my-0 mr-md-auto font-weight-normal">b) Reset Options</h5>
+                            <form class="form-inline mt-2 mt-md-0">
+                            <label for="reset-top">Reset Top Row: </label>
+                            &nbsp;&nbsp;
+                            <input type="checkbox" class="form-control input-checkbox" id="reset-top">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label for="reset-bottom">Reset Bottom Row: </label>
+                            &nbsp;&nbsp;
+                            <input type="checkbox" class="form-control input-checkbox" id="reset-bottom">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label for="reset-bottom">Reset Logo: </label>
+                            &nbsp;&nbsp;
+                            <input type="checkbox" class="form-control input-checkbox" id="reset-logo">
+                            &nbsp;&nbsp;
+                        </form>
+                        </div>   
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                            <h5 class="my-0 mr-md-auto font-weight-normal">b) Ring Colors</h5>
+                            <form class="form-inline mt-2 mt-md-0">
+                            <label for="top-fg"><img src="arrow-up.png" width="25%" height="25%"/> FG: </label>
+                            <input type="color" id="top-fg" name="top-fg" value="#00ff00">
+                            &nbsp;&nbsp;
+                            <input type="text" class="form-control input-text color-text" id="top-fg-text" placeholder="0|15">                    
+                            &nbsp;&nbsp;
+                            <label for="top-bg"><img src="arrow-up.png" width="25%" height="25%"/> BG: </label>
+                            <input type="color" id="top-bg" name="top-bg" value="#00ff00">
+                            &nbsp;&nbsp;
+                            <input type="text" class="form-control input-text color-text" id="top-bg-text" placeholder="0|15">                    
+                            &nbsp;&nbsp;
+                            <label for="btm-fg"><img src="arrow-down.png" width="25%" height="25%"/> FG: </label>
+                            <input type="color" id="btm-fg" name="btm-fg" value="#00ff00">
+                            &nbsp;&nbsp;
+                            <input type="text" class="form-control input-text color-text" id="btm-fg-text" placeholder="0|15">                    
+                            &nbsp;&nbsp;
+                            <label for="btm-bg"><img src="arrow-down.png" width="25%" height="25%"/> BG: </label>
+                            <input type="color" id="btm-bg" name="btm-bg" value="#00ff00">
+                            &nbsp;&nbsp;
+                            <input type="text" class="form-control input-text color-text" id="btm-bg-text" placeholder="0|15">                    
+                            </form>
+                        </div>   
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                            <h5 class="my-0 mr-md-auto font-weight-normal">b) Motion Options</h5>
+                            <form class="form-inline mt-2 mt-md-0">
+                            <label for="morph-motion">Morph Params: </label>
+                                &nbsp;&nbsp;
+                            <input type="checkbox" class="form-control input-checkbox" id="morph-check">
+                                &nbsp;&nbsp;
+                            <input type="text" class="form-control input-text motion-params" id="morph-motion" placeholder="Example: top_morph=80|8">
+                                &nbsp;&nbsp;
+                            <label for="whirl-motion">Whirl Params: </label>
+                                &nbsp;&nbsp;
+                                <input type="checkbox" class="form-control input-checkbox" id="whirl-check">
+                                &nbsp;&nbsp;
+                            <input type="text" class="form-control input-text motion-params" id="whirl-motion" placeholder="Example: top_whirl=240">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-white">
+                    <div class="col">
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                        <h5 class="my-0 mr-md-auto font-weight-normal">Connect to UFO</h5>
+                            <form class="form-inline mt-2 mt-md-0">
+                            <label for="api-url">API URL: </label>
+                            &nbsp;&nbsp;
+                            <input type="text" class="form-control input-text api-path" id="api-url" placeholder="https://<ufourl>/api" onBlur="setUrlCookie()">
+                                &nbsp;&nbsp;
+                            <label for="reset-top">Connection Status: </label>
+                                &nbsp;&nbsp;
+                            <input type="color" id="api-status" name="api-status" value="#cccccc" disabled>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-success" id="sendToUFO" data-id="-1">Send to UFO</button>
+                            </form>
+                        </div>   
+                    </div>
+                </div>
+                <div class="row row-white">
+                    <div class="col">
+                        <h5 class="my-0 mr-md-auto font-weight-normal">Calls sent to UFO:</h5>
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                            <form class="form-inline mt-2 mt-md-0">
+                                <textarea class="api-calls" id="result"></textarea>
+                            </form>
+                        </div>   
+                    </div>
+                </div>
+            </div>        
         </div>
     </div>
+<!--
+
     <div class="container ufo-container">
         <div class="row row-grey">
           <div class="col" id="col-bottom">
@@ -228,13 +289,7 @@
           </div>
         </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col" id="col-result">
-          <span id="result"></span>
-        </div>
-      </div>  
-    </div>
+    -->
 
   <!-- Page Content -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -330,9 +385,9 @@
       "Top Red, Bottom Green":
         { 
             url: "top=ff0000&bottom=00ff00&top_bg=ff0000&bottom_bg=00ff00",
-            reset_top: false,
-            reset_btm: false,
-            reset_logo: false,
+            reset_top: true,
+            reset_btm: true,
+            reset_logo: true,
             top_fg: "ff0000",
             top_bg: "ff0000",
             btm_fg: "00ff00",
@@ -545,7 +600,7 @@
 
       url = url + params;
       console.log(url);
-      r.innerHTML = url + '</br>' + r.innerHTML;
+      r.innerHTML = url + "\r\n" + r.innerHTML;
 
       console.log('Ajax');
       $.ajax({
