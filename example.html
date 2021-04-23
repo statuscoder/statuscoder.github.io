@@ -15,22 +15,46 @@
       @import url(https://fonts.googleapis.com/css?family=Montserrat:400);
 
       .data-container {
-          margin-top: 20px;
+          margin-top: 0px;
           background-color: #ffffff;
+      }
+
+      .data-container .row .col {
+        margin-top: 5px;
+        margin-bottom: 0px;
       }
 
       .row-blue {
         background-color: dodgerblue;
+        margin-left: auto;
+        margin-right: auto;
         width: 100%;
       }
 
       .row-purple {
         background-color:mediumpurple;
+        margin-left: auto;
+        margin-right: auto;
         width: 100%;
       }
 
+      .row-white {
+        background-color:yellow;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+      }
       .row-green {
-        background-color:palegreen;
+        background-color:greenyellow;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+      }
+
+      .row-grey {
+        background-color: #cccccc;
+        margin-left: auto;
+        margin-right: auto;
         width: 100%;
       }
 
@@ -42,10 +66,22 @@
         width: 265px!important;
       }
 
-      .ufo-container {
-          margin-top: 20px;
-          background-color: dimgrey;
+      .color-text {
+        width: 55px!important;
       }
+
+      .ufo-container {
+        margin-top: 0px;
+        background-color: #ffffff;
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+      }
+      #col-bottom, #col-top {
+        height: 400px;
+        width: 50%;
+      }
+
       .col-result span {
         text-align: left;
       }
@@ -82,72 +118,24 @@
     </style>
   </head>
   <body>
-  <!--
-
-    <div class="container">
-      <div class="row">
-        <div class="col">    
-          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-              <div class="container">
-                <a class="navbar-brand" href="#">Gary's UFO Helper</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                  <ul class="navbar-nav ml-auto" style="background-color: white;">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">
-                            <span class="sr-only">(current)</span>
-                          </a>
-                    </li>
-                    <li class="nav-item">
-                      <button class="btn btn-danger" id="changeLED" data-id="2" style="color: rgb(105, 1, 1);">[Busy]</button>
-                    </li>
-                    <li class="nav-item">
-                      <button class="btn btn-light" id="changeLED" data-id="3" style="color: rgb(0, 0, 178);" >[Available]</button>
-                    </li>
-                  <li class="nav-item">
-                      <button class="btn btn-info" id="changeLED" data-id="1" style="color: rgb(90, 191, 254);">[Thirsty/Hungry]</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-success" id="changeLED" data-id="4" style="color: rgb(188, 182, 77);">[On A Call]</button>
-                      </li>
-                      <li class="nav-item">
-                        <button class="btn btn-dark" id="changeLED" data-id="0" style="color: rgb(130, 127, 127); ">[Turn Off]</button>
-                      </li>
-                      <li class="nav-item">
-                        <button class="btn btn-info" id="changeLED" data-id="-1" style="color: black';">[Custom Colors]</button>
-                      </li>
-                      <li class="nav-item">
-                        &nbsp;Top&nbsp;&nbsp;
-                        <input type="color" id="top" name="top" value="#00ff00">
-                      </li>
-                      <li class="nav-item">
-                        &nbsp;Bottom&nbsp;&nbsp;
-                        <input type="color" id="bottom" name="bottom" value="#ff0000"><br/>
-                      </li>
-                      <li class="nav-item">
-                        &nbsp;Extram&nbsp;&nbsp;
-                        <input type="text" id="extra" name="extra" value="&top_morph=80|8" placeholder="Extra stuff"><br/>
-                      </li>
-                    </ul>                      
-                </div>
-              </div>
-            </nav>    
-        </div>
-      </div>
-    </div>
--->
       
     <div class="container data-container">
+        <div class="row row-white">
+            <div class="col">    
+                <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                    <h5 class="my-0 mr-md-auto font-weight-normal">Instructions</h5>
+                    <span>Pick a single item from option 'a' or multiple items from option 'b', then add your api url and click 'Send to UFO'</span>
+                </div>
+            </div>
+        </div>
         <div class="row row-blue">
             <div class="col">    
                 <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">Pre-set Params</h5>
+                    <h5 class="my-0 mr-md-auto font-weight-normal">a) Pre-set Params</h5>
                     <form class="form-inline mt-2 mt-md-0">
                         <label for="api-url">Params: </label>
                         &nbsp;&nbsp;
-                        <select id="pre-set-params"></select>
+                        <select id="preSetParams"><option value="">NONE</option></select>
                     </form>
                 </div>
             </div>
@@ -155,7 +143,7 @@
         <div class="row row-purple">
             <div class="col">          
                 <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">Reset Options</h5>
+                    <h5 class="my-0 mr-md-auto font-weight-normal">b) Reset Options</h5>
                     <form class="form-inline mt-2 mt-md-0">
                     <label for="reset-top">Reset Top Row: </label>
                     &nbsp;&nbsp;
@@ -172,27 +160,31 @@
                 </form>
                 </div>   
                 <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">Ring Colors</h5>
+                    <h5 class="my-0 mr-md-auto font-weight-normal">b) Ring Colors</h5>
                     <form class="form-inline mt-2 mt-md-0">
-                    <label for="top-fg">Top Foreground: </label>
-                    &nbsp;&nbsp;
+                    <label for="top-fg"><img src="arrow-up.png" width="25%" height="25%"/> FG: </label>
                     <input type="color" id="top-fg" name="top-fg" value="#00ff00">
                     &nbsp;&nbsp;
-                    <label for="top-bg">Top Background: </label>
+                    <input type="text" class="form-control input-text color-text" id="top-fg-text" placeholder="0|15">                    
                     &nbsp;&nbsp;
+                    <label for="top-bg"><img src="arrow-up.png" width="25%" height="25%"/> BG: </label>
                     <input type="color" id="top-bg" name="top-bg" value="#00ff00">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <label for="btm-fg">Bottom Foreground: </label>
                     &nbsp;&nbsp;
+                    <input type="text" class="form-control input-text color-text" id="top-bg-text" placeholder="0|15">                    
+                    &nbsp;&nbsp;
+                    <label for="btm-fg"><img src="arrow-down.png" width="25%" height="25%"/> FG: </label>
                     <input type="color" id="btm-fg" name="btm-fg" value="#00ff00">
                     &nbsp;&nbsp;
-                    <label for="btm-bg">Bottom Background: </label>
+                    <input type="text" class="form-control input-text color-text" id="btm-fg-text" placeholder="0|15">                    
                     &nbsp;&nbsp;
+                    <label for="btm-bg"><img src="arrow-down.png" width="25%" height="25%"/> BG: </label>
                     <input type="color" id="btm-bg" name="btm-bg" value="#00ff00">
+                    &nbsp;&nbsp;
+                    <input type="text" class="form-control input-text color-text" id="btm-bg-text" placeholder="0|15">                    
                     </form>
                 </div>   
                 <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">Motion Options</h5>
+                    <h5 class="my-0 mr-md-auto font-weight-normal">b) Motion Options</h5>
                     <form class="form-inline mt-2 mt-md-0">
                     <label for="morph-motion">Morph Params: </label>
                         &nbsp;&nbsp;
@@ -212,15 +204,15 @@
         <div class="row row-green">
             <div class="col">
                 <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                <h5 class="my-0 mr-md-auto font-weight-normal">Connection to UFO</h5>
+                <h5 class="my-0 mr-md-auto font-weight-normal">Connect to UFO</h5>
                     <form class="form-inline mt-2 mt-md-0">
-                    <label for="api-url">API Path: </label>
+                    <label for="api-url">API URL: </label>
                     &nbsp;&nbsp;
                     <input type="text" class="form-control input-text api-path" id="api-url" placeholder="https://<ufourl>/api" onBlur="setUrlCookie()">
                         &nbsp;&nbsp;
                     <label for="reset-top">Connection Status: </label>
                         &nbsp;&nbsp;
-                    <input type="color" id="net-status" name="net-status" value="#ffffff" disabled>
+                    <input type="color" id="api-status" name="api-status" value="#cccccc" disabled>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-success" id="sendToUFO" data-id="-1">Send to UFO</button>
                     </form>
@@ -229,14 +221,10 @@
         </div>
     </div>
     <div class="container ufo-container">
-        <div class="row">
+        <div class="row row-grey">
           <div class="col" id="col-bottom">
-            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-bottom">
-            </svg>
           </div>
           <div class="col" id="col-top">
-            <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut" id="ufo-top">
-            </svg>
           </div>
         </div>
     </div>
@@ -257,31 +245,107 @@
     //page elements
     var obj_top_fg = $('#top-fg');
     var obj_btm_fg = $('#btm-fg');
-    var obj_presets = $('#pre-set-params');
+    var obj_presets = $('#preSetParams');
 
     //preset values
-    var pre_set_params = [
-      "None|",
-      "Turn Off|api?top_init&bottom_init&logo=000000|000000|000000|000000",
-      "Thirsty|api?logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw",
-      "Busy|api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000",
-      "Available|api?logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff",
-      "On A Call|api?logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00",
-    ];
-
     var presets = {
       "NONE" : 
         { url: ""},
       "Turn Off UFO": 
-        { url: "top_init&bottom_init&logo=000000|000000|000000|000000"},
+        { 
+            url: "top_init&bottom_init&logo=000000|000000|000000|000000",
+            reset_top: true,
+            reset_btm: true,
+            reset_logo: true,
+            top_fg: "000000",
+            top_bg: "000000",
+            btm_fg: "000000",
+            btm_bg: "000000",
+            logo_top: "000000",
+            logo_left: "000000",
+            logo_btm: "000000",
+            logo_right: "800000",
+            top_morph: "",
+            btm_morph: "",
+            top_whirl: "",
+            btm_whirl: ""
+        },
       "Two color with ccw whirl": 
-        { url: "logo_reset&top_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_init&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw"},
+        { 
+            url: "logo_reset&top_init&bottom_init&top_bg=ffffff&top=0|12|00ff00&top_whirl=240&bottom_bg=ffffff&bottom=0|12|00ff00&bottom_whirl=240|ccw",
+            reset_top: true,
+            reset_btm: true,
+            reset_logo: true,
+            top_fg: "0|12|00ff00",
+            top_bg: "ffffff",
+            btm_fg: "0|12|00ff00",
+            btm_bg: "ffffff",
+            logo_top: "ffff00",
+            logo_left: "0080ff",
+            logo_btm: "6600cc",
+            logo_right: "80ff00",
+            top_morph: "",
+            btm_morph: "",
+            top_whirl: "240",
+            btm_whirl: "240|ccw"
+        },
       "All red": 
-        { url: "logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=ff0000"},
+        { 
+            url: "logo_reset&top_init&bottom_init&top=ff0000&bottom=ff0000&top_bg=ff0000&bottom_bg=ff0000",
+            reset_top: true,
+            reset_btm: true,
+            reset_logo: true,
+            top_fg: "ff0000",
+            top_bg: "ff0000",
+            btm_fg: "ff0000",
+            btm_bg: "ff0000",
+            logo_top: "ffff00",
+            logo_left: "0080ff",
+            logo_btm: "6600cc",
+            logo_right: "80ff00",
+            top_morph: "",
+            btm_morph: "",
+            top_whirl: "",
+            btm_whirl: ""
+        },
       "All white": 
-        { url: "logo_reset&top_init&bottom_init&top_bg=ffffff&bottom_bg=ffffff"},
+        { 
+            url: "logo_reset&top_init&bottom_init&top=ffffff&bottom=ffffff&top_bg=ffffff&bottom_bg=ffffff",
+            reset_top: true,
+            reset_btm: true,
+            reset_logo: true,
+            top_fg: "ffffff",
+            top_bg: "ffffff",
+            btm_fg: "ffffff",
+            btm_bg: "ffffff",
+            logo_top: "ffff00",
+            logo_left: "0080ff",
+            logo_btm: "6600cc",
+            logo_right: "80ff00",
+            top_morph: "",
+            btm_morph: "",
+            top_whirl: "",
+            btm_whirl: ""
+        },
       "Top Red, Bottom Green":
-        { url: "logo_reset&top_init&bottom_init&top_bg=ff0000&bottom_bg=00ff00"},
+        { 
+            url: "top=ff0000&bottom=00ff00&top_bg=ff0000&bottom_bg=00ff00",
+            reset_top: false,
+            reset_btm: false,
+            reset_logo: false,
+            top_fg: "ff0000",
+            top_bg: "ff0000",
+            btm_fg: "00ff00",
+            btm_bg: "00ff00",
+            logo_top: "ffff00",
+            logo_left: "0080ff",
+            logo_btm: "6600cc",
+            logo_right: "80ff00",
+            top_morph: "",
+            btm_morph: "",
+            top_whirl: "",
+            btm_whirl: ""
+        },
     };
 
     /********
@@ -302,6 +366,12 @@
         $("#sendToUFO").on('click', function(e){
           buildAPICall(e,$(this));
         });
+        $("#preSetParams").on('change', function(e){
+            console.log('changed');
+            updateSettings(e,$(this));
+        });
+
+        //always
         populateSelect();
         setupUFO();
     });
@@ -311,16 +381,18 @@
     }
 
     function populateSelect() {
-      console.log('setOptions');
+      console.log('setPreSets');
 
-      pre_set = document.getElementById('pre-set-params');
+      pre_set = document.getElementById('preSetParams');
       for (key in presets){
         for (subkey in presets[key])
         {
-          var opt = document.createElement("option");
-          opt.value = subkey;
-          opt.text = key;
-          pre_set.add(opt,null);
+            if (subkey == "url") {
+                var opt = document.createElement("option");
+                opt.value = subkey;
+                opt.text = key;
+                pre_set.add(opt,null);            
+            }
         }
       }
     }
@@ -360,15 +432,107 @@
     function setupUFO()
     {
       console.log('setupUFO');
-      makeUFO('top', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top",40);
-      makeLogo('top',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
-      makeUFO('bottom', '#000000', '#cccccc', '#ff0000', 6.4, 6.659, "top", 40);
+      makeUFO('bottom', '#000000', '#cccccc',$('#btm-fg').val(), 6.4, 6.659, "top",50);
+      makeLogo('bottom',20,20,30,30, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
+      makeUFO('top', '#000000', '#cccccc', $('#top-fg').val(), 6.4, 6.659, "top",50);
+    }
+
+    function updateSettings(e, element){
+      e.preventDefault();
+      console.log('updateSettings');
+      var obj = document.getElementById('preSetParams')
+      var id = obj.options[obj.selectedIndex].text;
+      console.log(id);
+      if (id != 'NONE') {
+        //options
+        $('#reset-top').prop("checked",presets[id].reset_top);
+        $('#reset-bottom').prop("checked",presets[id].reset_btm);
+        $('#reset-logo').prop("checked",presets[id].reset_logo);
+
+        var tfa = presets[id].top_fg.split('|');
+        var tba = presets[id].top_bg.split('|');
+        var bfa = presets[id].btm_fg.split('|');
+        var bba = presets[id].btm_bg.split('|');
+        var tfc = "";
+        var tbc = "";
+        var bfc = "";
+        var bbc = "";
+
+        if (Array.isArray(tfa) && tfa.length > 2) {
+            $('#top-fg-text').val(tfa[0] + "|" + tfa[1]);
+            tfc =  tfa[2];
+        } else {
+            $('#top-fg-text').val("");
+            tfc = tfa;
+        }
+
+        if (Array.isArray(tba) && tba.length > 2) {
+            $('#top-bg-text').val(tba[0] + "|" + tba[1]);
+            tbc =  tba[2];
+        } else {
+            $('#top-bg-text').val("");
+            tbc = tba;
+        }
+
+        if (Array.isArray(bfa) && bfa.length > 2) {
+            $('#btm-fg-text').val(bfa[0] + "|" + bfa[1]);
+            bfc =  bfa[2];
+        } else {
+            $('#btm-fg-text').val("");
+            bfc = bfa;
+        }
+
+        if (Array.isArray(bba) && bba.length > 2) {
+            $('#btm-bg-text').val(bba[0] + "|" + bba[1]);
+            bbc =  bba[2];
+        } else {
+            $('#btm-bg-text').val("");
+            bbc = bba;
+        }
+ 
+        //colors
+        $('#top-fg').val("#"+tfc);
+        $('#top-bg').val("#"+tbc);
+        $('#btm-fg').val("#"+bfc);
+        $('#btm-bg').val("#"+bbc);
+        
+        //whirl
+        if (presets[id].top_whirl.length > 0 && presets[id].btm_whirl.length > 0 ) {
+            $('#whirl-motion').val("top_whirl=" + presets[id].top_whirl + "&" + "bottom_whirl=" + presets[id].btm_whirl);
+            $('#whirl-check').prop("checked",(presets[id].top_whirl.length > 0 || presets[id].btm_whirl.length > 0) ? true : false);
+        } else if (presets[id].top_whirl.length > 0 ) {
+            $('#whirl-motion').val("top_whirl=" + presets[id].top_whirl);
+            $('#whirl-check').prop("checked",(presets[id].top_whirl.length > 0) ? true : false);
+        } else if (presets[id].btm_whirl.length > 0 ) {
+            $('#whirl-motion').val("bottom_whirl=" + presets[id].btm_whirl);
+            $('#whirl-check').prop("checked",(presets[id].btm_whirl.length > 0) ? true : false);
+        } else {
+            $('#whirl-motion').val("")
+            $('#whirl-check').prop("checked",false);
+        }
+        
+        //morph
+        if (presets[id].top_morph.length > 0 && presets[id].btm_morph.length > 0 ) {
+            $('#morph-motion').val("top_morph=" + presets[id].top_morph + "&" + "bottom_morph=" + presets[id].btm_morph);
+            $('#morph-check').prop("checked",(presets[id].top_morph.length > 0 || presets[id].btm_morph.length > 0) ? true : false);
+        } else if (presets[id].top_morph.length > 0 ) {
+            $('#morph-motion').val("top_morph=" + presets[id].top_morph);
+            $('#morph-check').prop("checked",(presets[id].top_morph.length > 0) ? true : false);
+        } else if (presets[id].btm_morph.length > 0 ) {
+            $('#morph-motion').val("bottom_morph=" + presets[id].btm_morph);
+            $('#morph-check').prop("checked",(presets[id].btm_morph.length > 0) ? true : false);
+        } else {
+            $('#morph-motion').val("")
+            $('#morph-check').prop("checked",false);
+        }
+
+      }      
     }
 
     function changeColors(id, tc, bc){
       console.log('changeColors');
       if (id != -1){    
-        var params = presets[id];
+        var params = presets[id.url];
         console.log("Change to " + params);
 
         //top_fg.value = "#"+ tclrs[id];
@@ -390,9 +554,10 @@
       })
       .done(function() {
           console.log('Done');
-          $('api-status').val('#00ff00');
+          $('#api-status').val('#00ff00');
       })
       .fail(function (xhr, status, error) {
+            $('#api-status').val('#ff0000');
               console.log('xhr:' + xhr + "!");
               console.log('status:' + status + "!");
               console.log('error:' + error + "!");
@@ -403,36 +568,32 @@
       e.preventDefault();
       console.log('buildAPICall');
       //set internal vars
-      var obj = document.getElementById('pre-set-params');
+      var obj = document.getElementById('preSetParams');
       var id = obj.options[obj.selectedIndex].text;
       var url = $('#api-url').val() + "?";
-
-      //var url = getCookie('api-url') + "?";
       console.log(url);
       var params = "";
-      if (id != 'NONE') {
-        params = presets[id].url;
-      } else {
+//      if (id != 'NONE') {
+//        console.log('changing UI values');
+//        params = presets[id].url;
+//      } else {
         params += document.querySelector("#reset-top").checked == true ? 'top_init&' : '';
         params += document.querySelector("#reset-bottom").checked == true ? 'bottom_init&' : '';
         params += document.querySelector("#reset-logo").checked == true ? 'logo_reset&' : '';
-        params += $("#top-bg").val().length > 0 ? 'top_bg=' + $('#top-bg').val().substr(1,6) + '&' : ''; 
-        params += $("#top-fg").val().length > 0 ? 'top=' + $('#top-fg').val().substr(1,6) + '&' : ''; 
-        params += $("#btm-bg").val().length > 0 ? 'bottom_bg=' + $('#btm-bg').val().substr(1,6) + '&' : ''; 
-        params += $("#btm-fg").val().length > 0 ? 'bottom=' + $('#btm-fg').val().substr(1,6) + '&' : ''; 
+        params += $("#top-bg").val().length > 0 ? 'top_bg=' +  ($('#top-bg-text').val().length > 0 ? $('#top-bg-text').val() + "|" : "") + $('#top-bg').val().substr(1,6) + '&' : ''; 
+        params += $("#top-fg").val().length > 0 ? 'top=' + ($('#top-fg-text').val().length > 0 ? $('#top-fg-text').val() + "|" : "") + $('#top-fg').val().substr(1,6) + '&' : ''; 
+        params += $("#btm-bg").val().length > 0 ? 'bottom_bg=' + ($('#btm-bg-text').val().length > 0 ? $('#btm-bg-text').val() + "|" : "") + $('#btm-bg').val().substr(1,6) + '&' : ''; 
+        params += $("#btm-fg").val().length > 0 ? 'bottom=' + ($('#btm-fg-text').val().length > 0 ? $('#btm-fg-text').val() + "|" : "") + $('#btm-fg').val().substr(1,6) + '&' : ''; 
         params += (document.querySelector("#morph-check").checked == true && $("#morph-motion").val().length > 0) ? $('#morph-motion').val() + '&' : ''; 
         params += (document.querySelector("#whirl-check").checked == true && $("#whirl-motion").val().length > 0) ? $('#whirl-motion').val() + '&' : ''; 
         params = params.substr(0,params.length-1);
-      }      
+//      }      
 
       console.log("changing ufo");
       
       changeColors(id);
       postAPI(url, params);
- 
-      makeUFO('bottom', '#000000', '#e0e0e0',$('#btm_fg').val(), 6.4, 6.659, "top",40);
-      makeLogo('bottom',15,15,25,25, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
-      makeUFO('top', '#000000', '#e0e0e0', $('#top_fg').val(), 6.4, 6.659, "top",40);
+      setupUFO();
 
     }
 
@@ -457,9 +618,9 @@
         var cx = size/2;
         var cy = size/2;
         var r = 15.91549430918954;
-        var r = 16;
+        //var r = 16;
         var f = "transparent";
-        var sw = 3;
+        var sw = 2.3;
         var d = dashlength + " " + (100-dashlength);
 
         var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
