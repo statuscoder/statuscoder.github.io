@@ -75,7 +75,7 @@
         margin-left: auto;
         width: 100%;
       }
-      #col-bottom, #col-top {
+      #col-bottom, #col-top, #col-wheel {
         height: 100%;
         width: 100%;
       }
@@ -149,11 +149,11 @@
     <div class="container full-page">
         <div class="pull-left">
             <div class="row">
-                <div class="left-side" id="col-bottom">
+                <div class="left-side" id="col-top">
                 </div>
             </div>
             <div class="row">
-                <div class="left-side" id="col-top">
+                <div class="left-side" id="col-bottom">
                 </div>
             </div>
         </div>
@@ -192,44 +192,104 @@
                         <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
                             <h5 class="my-0 mr-md-auto font-weight-normal">b) Reset Options</h5>
                             <form class="form-inline mt-2 mt-md-0">
-                            <label for="reset-top">Reset Top Row: </label>
+                            <label for="reset-top">Top Row <img src="arrow-up.png" width="25px" height="25px"/> FG &amp; BG : </label>
                             &nbsp;&nbsp;
                             <input type="checkbox" class="form-control input-checkbox" id="reset-top">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label for="reset-bottom">Reset Bottom Row: </label>
+                            <label for="reset-bottom">Bottom Row <img src="arrow-down.png" width="25px" height="25px"/> FG &amp; BG : </label>
                             &nbsp;&nbsp;
                             <input type="checkbox" class="form-control input-checkbox" id="reset-bottom">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label for="reset-bottom">Reset Logo: </label>
+                            <label for="reset-bottom">Logo Colors <img src="arrow-down.png" width="25px" height="25px"/> : </label>
                             &nbsp;&nbsp;
                             <input type="checkbox" class="form-control input-checkbox" id="reset-logo">
                             &nbsp;&nbsp;
                         </form>
                         </div>   
                         <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                            <h5 class="my-0 mr-md-auto font-weight-normal">b) Ring Colors</h5>
+                            <h5 class="my-0 mr-md-auto font-weight-normal">b)</h5> 
+                            <strong class="my-0 mr-md-auto font-weight-normal"><img src="arrow-up.png" width="25%" height="25%"/> FG: </strong>
                             <form class="form-inline mt-2 mt-md-0">
-                            <label for="top-fg"><img src="arrow-up.png" width="25%" height="25%"/> FG: </label>
-                            <input type="color" id="top-fg" name="top-fg" value="#00ff00">
-                            &nbsp;&nbsp;
-                            <input type="text" class="form-control input-text color-text" id="top-fg-text" placeholder="0|15">                    
-                            &nbsp;&nbsp;
-                            <label for="top-bg"><img src="arrow-up.png" width="25%" height="25%"/> BG: </label>
-                            <input type="color" id="top-bg" name="top-bg" value="#00ff00">
-                            &nbsp;&nbsp;
-                            <input type="text" class="form-control input-text color-text" id="top-bg-text" placeholder="0|15">                    
-                            &nbsp;&nbsp;
-                            <label for="btm-fg"><img src="arrow-down.png" width="25%" height="25%"/> FG: </label>
-                            <input type="color" id="btm-fg" name="btm-fg" value="#00ff00">
-                            &nbsp;&nbsp;
-                            <input type="text" class="form-control input-text color-text" id="btm-fg-text" placeholder="0|15">                    
-                            &nbsp;&nbsp;
-                            <label for="btm-bg"><img src="arrow-down.png" width="25%" height="25%"/> BG: </label>
-                            <input type="color" id="btm-bg" name="btm-bg" value="#00ff00">
-                            &nbsp;&nbsp;
-                            <input type="text" class="form-control input-text color-text" id="btm-bg-text" placeholder="0|15">                    
-                            </form>
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-1" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-2" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-3" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-4" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-5" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-6" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-7" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-8" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-9" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-10" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-11" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-12" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-13" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-14" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-fg" id="top-fg-15" value="#00ff00">
+                            </form>                            
                         </div>   
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                            <h5 class="my-0 mr-md-auto font-weight-normal">b)</h5> 
+                            <strong class="my-0 mr-md-auto font-weight-normal"><img src="arrow-up.png" width="25%" height="25%"/> BG: </strong>
+                            <form class="form-inline mt-2 mt-md-0">
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-1" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-2" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-3" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-4" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-5" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-6" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-7" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-8" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-9" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-10" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-11" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-12" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-13" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-14" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="top-bg" id="top-bg-15" value="#00ff00">
+                            </form>                            
+                        </div>   
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                            <h5 class="my-0 mr-md-auto font-weight-normal">b)</h5> 
+                            <strong class="my-0 mr-md-auto font-weight-normal"><img src="arrow-down.png" width="25%" height="25%"/> FG: </strong>
+                            <form class="form-inline mt-2 mt-md-0">
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-1" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-2" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-3" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-4" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-5" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-6" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-7" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-8" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-9" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-10" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-11" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-12" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-13" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-14" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-fg" id="btm-fg-15" value="#00ff00">
+                            </form>                            
+                        </div>   
+                        <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                            <h5 class="my-0 mr-md-auto font-weight-normal">b)</h5> 
+                            <strong class="my-0 mr-md-auto font-weight-normal"><img src="arrow-down.png" width="25%" height="25%"/> BG: </strong>
+                            <form class="form-inline mt-2 mt-md-0">
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-1" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-2" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-3" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-4" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-5" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-6" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-7" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-8" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-9" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-10" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-11" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-12" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-13" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-14" value="#00ff00">&nbsp;&nbsp;
+                            <input class="ledcolor" type="color" name="btm-bg" id="btm-bg-15" value="#00ff00">
+                            </form>                            
+                        </div>
                         <div class="d-flex flex-column flex-md-row align-items-center p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
                             <h5 class="my-0 mr-md-auto font-weight-normal">b) Motion Options</h5>
                             <form class="form-inline mt-2 mt-md-0">
@@ -243,7 +303,7 @@
                                 &nbsp;&nbsp;
                                 <input type="checkbox" class="form-control input-checkbox" id="whirl-check">
                                 &nbsp;&nbsp;
-                            <input type="text" class="form-control input-text motion-params" id="whirl-motion" placeholder="Example: top_whirl=240">
+                            <input type="text" class="form-control input-text motion-params" id="whirl-motion" placeholder="Example: top_whirl=240|ccw">
                             </form>
                         </div>
                     </div>
@@ -279,17 +339,6 @@
             </div>        
         </div>
     </div>
-<!--
-
-    <div class="container ufo-container">
-        <div class="row row-grey">
-          <div class="col" id="col-bottom">
-          </div>
-          <div class="col" id="col-top">
-          </div>
-        </div>
-    </div>
-    -->
 
   <!-- Page Content -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -297,11 +346,20 @@
   <script>
 
     //global vars
-    //page elements
-    var obj_top_fg = $('#top-fg');
-    var obj_btm_fg = $('#btm-fg');
+    //page elements DO-NOT-CHANGE
     var obj_presets = $('#preSetParams');
+    var top_fg_colors = [];
+    var top_bg_colors = [];
+    var btm_fg_colors = [];
+    var btm_bg_colors = [];
+    var logo_colors = ["#ffff00", "#0080ff", "#6600cc", "#80ff00"];
+    var log_flow = false;
 
+    /********
+    **
+    **  SET YOUR CUSTOM PRE SETS HERE - CHANGE-BELOW
+    **
+    ********/
     //preset values
     var presets = {
       "NONE" : 
@@ -403,27 +461,18 @@
         },
     };
 
-    /********
-    **
-    **  SET YOUR CUSTOM PRE SETS HERE
-    **
-    ********/
-    
-    var bclrs = ["c9c9c9","ffffff","ff0000","ffffff","ff0000"];
-    var tclrs = ["c9c9c9","ffffff","ff0000","ffffff","00ff00"];
-
-    //var baseUrl = "https://ufo217.ddns.net/"; //"https://ufo/";
-
-    var r = document.getElementById("result");
-
     $(document).ready(function() {
         $("#api-url").val(getCookie('api-url'));
         $("#sendToUFO").on('click', function(e){
           buildAPICall(e,$(this));
         });
         $("#preSetParams").on('change', function(e){
-            console.log('changed');
+            if (log_flow) console.log('changed pre set value');
             updateSettings(e,$(this));
+        });
+        $(".ledcolor").on('change', function(e){
+            if (log_flow) console.log('changed led color');
+            setupUFO();
         });
 
         //always
@@ -431,12 +480,87 @@
         setupUFO();
     });
 
+
+    //js functions listed below
+    function assignGroupLeds(row_prefix,color){
+        for (i = 1; i < 16; i++)
+        {
+            $(row_prefix+i).val("#" + color);
+        }
+    }
+
+    function assignIndividualLeds(row_prefix, row_content)
+    {
+        if (log_flow) console.log(row_prefix);
+        if (Array.isArray(row_content) && row_content.length > 1)
+        {
+            var counter = row_content.length/3;
+            if (log_flow) console.log('row_content is array with length of '+ counter );
+            row_content.reverse()
+            for(i = 0; i < counter; i++)
+            {
+                t_start= row_content.pop();
+                t_count = row_content.pop();
+                t_color = row_content.pop();
+                for (l = t_start; l < t_start+t_count; l++){
+                    $(row_prefix+l).val("#"+t_color);
+                }
+            }
+        } else {
+            for (i = 1; i < 16; i++)
+            {
+                $(row_prefix+i).val("#"+row_content);
+            }
+        }
+    }
+
+    function updateColorLeds(init_top, init_btm,top, top_bg, btm, btm_bg)
+    {
+        if (log_flow) console.log('updateColorLeds');
+        top = top.split('|');
+        top_bg = top_bg.split('|');
+        btm = btm.split('|');
+        btm_bg = btm_bg.split('|');
+        
+        //set defaults
+        if (init_top) { 
+            assignGroupLeds('#top-fg-',"000000");
+            assignGroupLeds('#top-bg-',"000000");
+        }
+        if (init_btm) { 
+            assignGroupLeds('#btm-fg-',"000000");
+            assignGroupLeds('#btm-bg-',"000000");
+        }
+
+        //set top color
+        assignIndividualLeds('#top-fg-',top);
+        assignIndividualLeds('#top-bg-',top_bg);
+        assignIndividualLeds('#btm-fg-',btm);
+        assignIndividualLeds('#btm-bg-',btm_bg);
+
+    }
+
+    function updateColorArrays() {
+        if (log_flow) console.log('updateColorsArray')
+        top_fg_colors = [];
+        top_bg_colors = [];
+        btm_fg_colors = [];
+        btm_bg_colors = [];
+        for (i = 1; i < 16; i++)
+        {
+            top_fg_colors.push($('#top-fg-'+i).val());
+            top_bg_colors.push($('#top-bg-'+i).val());
+            btm_fg_colors.push($('#btm-fg-'+i).val());
+            btm_bg_colors.push($('#btm-bg-'+i).val());
+        }
+    }
+
     function setUrlCookie(){
       setCookie('api-url',$('#api-url').val(),90);
     }
 
     function populateSelect() {
-      console.log('setPreSets');
+      if (log_flow) console.log('setPreSets');
 
       pre_set = document.getElementById('preSetParams');
       for (key in presets){
@@ -453,31 +577,31 @@
     }
 
     function setCookie(cname, cvalue, exdays) {
-      console.log('setCookie');
+      if (log_flow) console.log('setCookie');
       var d = new Date();
       d.setTime(d.getTime() + (exdays*24*60*60*1000));
       var expires = "expires="+ d.toUTCString();
       var cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-      console.log(cookie);
+      if (log_flow) console.log(cookie);
       document.cookie = cookie;
     }
 
     function getCookie(cname) {
-      console.log('getCookie');
+      if (log_flow) console.log('getCookie');
 
       var name = cname + "=";
       var decodedCookie = decodeURIComponent(document.cookie);
-      console.log(decodedCookie);
+      if (log_flow) console.log(decodedCookie);
       var ca = decodedCookie.split(';');
       for(var i = 0; i <ca.length; i++) {
         var c = ca[i];
-        console.log(c);
+        if (log_flow) console.log(c);
         while (c.charAt(0) == ' ') {
           c = c.substring(1);
-          console.log(c);
+          if (log_flow) console.log(c);
         }
         if (c.indexOf(name) == 0) {
-          console.log(c.substring(name.length, c.length));
+          if (log_flow) console.log(c.substring(name.length, c.length));
           return c.substring(name.length, c.length);
         }
       }
@@ -486,23 +610,25 @@
 
     function setupUFO()
     {
-      console.log('setupUFO');
-      makeUFO('bottom', '#000000', '#cccccc',$('#btm-fg').val(), 6.4, 6.659, "top",50);
-      makeLogo('bottom',20,20,30,30, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);
-      makeUFO('top', '#000000', '#cccccc', $('#top-fg').val(), 6.4, 6.659, "top",50);
+      updateColorArrays();      
+      if (log_flow) console.log('setupUFO');
+      makeUFO('top', '#000000', '#cccccc', top_fg_colors, top_bg_colors, 6.4, 6.659, "top",50);
+      makeUFO('bottom', '#000000', '#cccccc', btm_fg_colors, btm_bg_colors, 6.4, 6.659, "top",50);
+      makeLogo('bottom',20,20,30,30, logo_colors);
     }
 
     function updateSettings(e, element){
       e.preventDefault();
-      console.log('updateSettings');
       var obj = document.getElementById('preSetParams')
       var id = obj.options[obj.selectedIndex].text;
-      console.log(id);
+      if (log_flow) console.log('updateSettings for '+id);
       if (id != 'NONE') {
         //options
         $('#reset-top').prop("checked",presets[id].reset_top);
         $('#reset-bottom').prop("checked",presets[id].reset_btm);
         $('#reset-logo').prop("checked",presets[id].reset_logo);
+
+        updateColorLeds(presets[id].reset_top, presets[id].reset_btm,presets[id].top_fg, presets[id].top_bg, presets[id].btm_fg, presets[id].btm_bg);
 
         var tfa = presets[id].top_fg.split('|');
         var tba = presets[id].top_bg.split('|');
@@ -582,73 +708,88 @@
         }
 
       }      
-    }
-
-    function changeColors(id, tc, bc){
-      console.log('changeColors');
-      if (id != -1){    
-        var params = presets[id.url];
-        console.log("Change to " + params);
-
-        //top_fg.value = "#"+ tclrs[id];
-        //btm_fg.value = "#"+ tclrs[id];
-      }
+      setupUFO();
     }
 
     function postAPI(url, params){
-      console.log('postAPI');
+      var r = document.getElementById("result");
+      if (log_flow) console.log('postAPI');
 
       url = url + params;
-      console.log(url);
+      if (log_flow) console.log(url);
       r.innerHTML = url + "\r\n" + r.innerHTML;
 
-      console.log('Ajax');
+      if (log_flow) console.log('Ajax');
+      $.ajax({
+          url:  url,
+          type: "GET",
+          error: function() {
+            $('#api-status').val('#ff0000');
+            if (log_flow) console.log('error!');
+          },
+          success: function() {
+            $('#api-status').val('#00ff00');
+            if (log_flow) console.log('Done');
+          }
+      }); 
+
+      /*
       $.ajax({
           url:  url,
           type: "GET"
       })
       .done(function() {
-          console.log('Done');
+          if (log_flow) console.log('Done');
           $('#api-status').val('#00ff00');
       })
       .fail(function (xhr, status, error) {
             $('#api-status').val('#ff0000');
-              console.log('xhr:' + xhr + "!");
-              console.log('status:' + status + "!");
-              console.log('error:' + error + "!");
+              if (log_flow) console.log('xhr:' + xhr + "!");
+              if (log_flow) console.log('status:' + status + "!");
+              if (log_flow) console.log('error:' + error + "!");
       });   
+      */
+    }
+
+    function createLedColorParams(label,colors){
+        var result = label + "=";
+        var eoa = colors.length;
+        for (i = 0; i < eoa; i++)
+        {
+            result += i + "|1|" + colors[i].substr(1,6) + "|";
+        }
+        return result.substr(0,result.length-1);
     }
 
     function buildAPICall(e, element){
-      e.preventDefault();
-      console.log('buildAPICall');
-      //set internal vars
-      var obj = document.getElementById('preSetParams');
-      var id = obj.options[obj.selectedIndex].text;
-      var url = $('#api-url').val() + "?";
-      console.log(url);
-      var params = "";
-//      if (id != 'NONE') {
-//        console.log('changing UI values');
-//        params = presets[id].url;
-//      } else {
+        e.preventDefault();
+        var url = $('#api-url').val() + "?";
+        if (url.length == 1) {
+            alert('The UFO URL path must be set before you can connect to a UFO.');
+            return;
+        }
+        if (log_flow) console.log('buildAPICall');
+        //set internal vars
+        var obj = document.getElementById('preSetParams');
+        var id = obj.options[obj.selectedIndex].text;
+        if (log_flow) console.log(url);
+        var params = "";
         params += document.querySelector("#reset-top").checked == true ? 'top_init&' : '';
         params += document.querySelector("#reset-bottom").checked == true ? 'bottom_init&' : '';
         params += document.querySelector("#reset-logo").checked == true ? 'logo_reset&' : '';
-        params += $("#top-bg").val().length > 0 ? 'top_bg=' +  ($('#top-bg-text').val().length > 0 ? $('#top-bg-text').val() + "|" : "") + $('#top-bg').val().substr(1,6) + '&' : ''; 
-        params += $("#top-fg").val().length > 0 ? 'top=' + ($('#top-fg-text').val().length > 0 ? $('#top-fg-text').val() + "|" : "") + $('#top-fg').val().substr(1,6) + '&' : ''; 
-        params += $("#btm-bg").val().length > 0 ? 'bottom_bg=' + ($('#btm-bg-text').val().length > 0 ? $('#btm-bg-text').val() + "|" : "") + $('#btm-bg').val().substr(1,6) + '&' : ''; 
-        params += $("#btm-fg").val().length > 0 ? 'bottom=' + ($('#btm-fg-text').val().length > 0 ? $('#btm-fg-text').val() + "|" : "") + $('#btm-fg').val().substr(1,6) + '&' : ''; 
+        params += createLedColorParams('top_bg',top_bg_colors);
+        params += createLedColorParams('top',top_fg_colors);
+        params += createLedColorParams('bottom_bg',btm_bg_colors);
+        params += createLedColorParams('bottom',btm_fg_colors);
         params += (document.querySelector("#morph-check").checked == true && $("#morph-motion").val().length > 0) ? $('#morph-motion').val() + '&' : ''; 
         params += (document.querySelector("#whirl-check").checked == true && $("#whirl-motion").val().length > 0) ? $('#whirl-motion').val() + '&' : ''; 
         params = params.substr(0,params.length-1);
-//      }      
 
-      console.log("changing ufo");
-      
-      changeColors(id);
-      postAPI(url, params);
-      setupUFO();
+        if (log_flow) console.log("changing ufo");
+        
+        //changeColors(id);
+        postAPI(url, params);
+        setupUFO();
 
     }
 
@@ -658,8 +799,109 @@
         }
     }    
 
-    function makeUFO(id, insidecolor, gapcolor, ledcolor, dashlength, rotationoffset, label, size){
-        console.log('makeUFO');
+    function makeUFOv2(id, insidecolor, gapcolor, ledcolors, size, showLogo, logocolors){
+        numSegments = 15;
+        var cx = size/2;
+        var cy = size/2;
+        var div = document.getElementById("col-"+id);
+        removeAllChildNodes(div);        
+
+        var svgns = xmlns="http://www.w3.org/2000/svg";
+        var svg = document.createElementNS(svgns, "svg");
+
+        var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute('class','donut-ring');
+            circle.setAttribute('cx',cx);
+            circle.setAttribute('cy',cy);
+            circle.setAttribute('r',17);
+            circle.setAttribute('fill',gapcolor);
+        svg.appendChild(circle);            
+
+        circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute('class','donut-hole');
+            circle.setAttribute('cx',cx);
+            circle.setAttribute('cy',cy);
+            circle.setAttribute('r',15);
+            circle.setAttribute('fill',insidecolor);
+        svg.appendChild(circle);
+
+        var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs")
+        defs.setAttribute('id',"defs");
+
+        var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute('id',"pathss");
+        g.setAttribute('fill',"none");
+        g.setAttribute('stroke-width',"1.5");
+        g.setAttribute('transform',"translate("+cx+","+cy+")");
+
+        svg.setAttribute('viewBox',"0 0 " + size + " " + size);
+        svg.setAttribute('id',"svg-"+id);
+        svg.setAttribute('width',"100%");
+        svg.setAttribute('height',"100%");
+
+        //svg.appendChild(defs);
+        svg.appendChild(g);
+        div.appendChild(svg);
+
+        var radius = 16;
+        var stepAngle = 2 * Math.PI / numSegments;
+
+        var lastX = 0;
+        var lastY = -radius;
+        var lastAngle = 0;
+        
+        //for (var i=1; i<=numSegments; i++)
+        for (var i=1; i<=numSegments; i++)
+        {
+            var angle = i * stepAngle;
+
+            // Calculate this arc end point
+            var x = radius * Math.sin(angle);
+            var y = -radius * Math.cos(angle);
+            // Create a path element
+            var arc = document.createElementNS(svgns, "path");
+            arc.setAttribute("d", "M " + lastX.toFixed(3) + "," + lastY.toFixed(3)
+                                + " A 100,100 0 0,1 " + x.toFixed(3) + "," + y.toFixed(3));
+            arc.setAttribute("stroke", ledcolors[i-1]);
+            // Append it to our SVG
+            g.appendChild(arc);
+            
+            // Create a gradient for this segment
+            var grad = document.createElementNS(svgns, "linearGradient");
+            grad.setAttribute("id", "wheelseg"+i);
+            grad.setAttribute("gradientUnits", "userSpaceOnUse");
+            grad.setAttribute("x1", lastX.toFixed(3));
+            grad.setAttribute("y1", lastY.toFixed(3));
+            grad.setAttribute("x2", x.toFixed(3));
+            grad.setAttribute("y2", y.toFixed(3));
+            // Make the 0% stop for this gradient
+            var stop = document.createElementNS(svgns, "stop");
+            stop.setAttribute("offset", "0%");
+            hue = Math.round(lastAngle * 360 / Math.PI / 2);
+            stop.setAttribute("stop-color", "hsl(" + hue + ",100%,50%)");
+            grad.appendChild(stop);
+            // Make the 100% stop for this gradient
+            stop = document.createElementNS(svgns, "stop");
+            stop.setAttribute("offset", "100%");
+            hue = Math.round(angle * 360 / Math.PI / 2);
+            stop.setAttribute("stop-color", "hsl(" + hue + ",100%,50%)");
+            grad.appendChild(stop);
+            // Add the gradient to the SVG
+            defs.appendChild(grad);
+
+
+            // Update lastx/y
+            lastX = x;
+            lastY = y;
+            lastAngle = angle;
+        }
+        if (showLogo) {
+            makeLogo("svg-"+id,cx-5,cy-5,cx+5,cy+5, logocolors);        
+        }
+    }
+    
+    function makeUFO(id, insidecolor, gapcolor, fgcolors, bgcolors, dashlength, rotationoffset, label, size){
+        if (log_flow) console.log('makeUFO '+id);
         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute('class','donut');
         svg.setAttribute('id',"ufo-"+id);
@@ -704,7 +946,7 @@
             circle.setAttribute('cy',cy);
             circle.setAttribute('r',r);
             circle.setAttribute('fill',f);
-            circle.setAttribute('stroke',ledcolor);
+            circle.setAttribute('stroke', fgcolors[i] == "#000000" ? bgcolors[i] : fgcolors[i]);
             circle.setAttribute('stroke-width',sw);
             circle.setAttribute('stroke-dasharray',d);
             circle.setAttribute('stroke-dashoffset',ro);
@@ -731,8 +973,8 @@
     }
         
     function makeLogo(id, t,l,b,r,colors){
-      console.log('makeLogo');
-        var svg = document.getElementById("ufo-"+id);
+      if (log_flow) console.log('makeLogo');
+        var svg = document.getElementById('ufo-'+id);
         var p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
         var pts = "{{xy1}} {{xy2}} {{xy3}} {{xy4}} ";
         var sl = ((b-t)/4);

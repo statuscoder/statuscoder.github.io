@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <body>
+      <div id="colorwheel">
+
+      </div>
+      <!--
+    <svg id="colourwheel" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="-10 -10 220 220">
+        <defs id="defs">
+        </defs>
+      
+        <g id="paths" fill="none" stroke-width="15" transform="translate(100,100)">
+        </g>
+      </svg>
+      -->
+      <script>
+
+    var colors = [ "#00ff00","#ff0000","#00ff00","#ff0000","#00ff00","#ff0000","#00ff00","#ff0000","#00ff00","#ff0000","#00ff00","#ff0000","#00ff00","#ff0000","#00ffff"];
+    makeColourWheel(15,colors, "#000000", "#cccccc");
+
+
+    function makeLogo(id, t,l,b,r,colors){
+      console.log('makeLogo');
+        var svg = document.getElementById(id);
+        var p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+        var pts = "{{xy1}} {{xy2}} {{xy3}} {{xy4}} ";
+        var sl = ((b-t)/4);
+        var ll = (b-t);
+        var xy1, xy2, xy3, xy4, t_pts;
+
+        //top
+        xy1 = (l+sl) + "," + t; 
+        xy2 = l + "," + (t+sl); 
+        xy3 = (r-sl) + "," + (t+sl); 
+        xy4 = r + "," + t; 
+        t_pts = pts;
+        t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);
+        p.setAttribute('points', t_pts);
+        p.setAttribute('fill',colors[0]);
+        svg.appendChild(p);
+
+
+        //left
+        p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");   
+        xy1 = l+","+(t+sl); 
+        xy2 = (l+sl)+","+(t+sl); 
+        xy3 = (l+sl)+","+(b-sl); 
+        xy4 = l+","+b; 
+        t_pts = pts;
+        t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
+        p.setAttribute('points', t_pts);
+        p.setAttribute('fill',colors[1]);
+        svg.appendChild(p);
+
+
+        //bottom
+        p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");   
+        xy1 = l+","+b; 
+        xy2 = (l+sl)+","+(b-sl); 
+        xy3 = (r-sl)+","+(b-sl); 
+        xy4 = (r-sl)+","+b; 
+        t_pts = pts;
+        t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
+        p.setAttribute('points', t_pts);
+        p.setAttribute('fill',colors[2]);
+        svg.appendChild(p);
+
+        //right
+        p = document.createElementNS("http://www.w3.org/2000/svg", "polygon");   
+        xy1 = (r-sl)+","+b; 
+        xy2 = (r-sl)+","+(t+sl); 
+        xy3 = r+","+t; 
+        xy4 = r+","+(b-sl); 
+        t_pts = pts;
+        t_pts = t_pts.replace(/{{xy1}}/g,xy1).replace(/{{xy2}}/g,xy2).replace(/{{xy3}}/g,xy3).replace(/{{xy4}}/g,xy4);            
+        p.setAttribute('points', t_pts);
+        p.setAttribute('fill',colors[3]);
+        svg.appendChild(p);
+
+    }   
+
+    function makeColourWheel(numSegments, colors, insidecolor, gapcolor)
+    {   
+        if (numSegments <= 0)
+            numSegments = 6;
+        if (numSegments > 360)
+            numSegments = 360;
+        var size = 40;
+        var cx = size/2;
+        var cy = size/2;
+
+        var div = document.getElementById("colorwheel");
+
+        var svgns = xmlns="http://www.w3.org/2000/svg";
+        var svg = document.createElementNS(svgns, "svg");
+
+        var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute('class','donut-ring');
+            circle.setAttribute('cx',cx);
+            circle.setAttribute('cy',cy);
+            circle.setAttribute('r',17);
+            circle.setAttribute('fill',gapcolor);
+        svg.appendChild(circle);            
+
+        circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute('class','donut-hole');
+            circle.setAttribute('cx',cx);
+            circle.setAttribute('cy',cy);
+            circle.setAttribute('r',15);
+            circle.setAttribute('fill',insidecolor);
+        svg.appendChild(circle);
+
+        var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs")
+        defs.setAttribute('id',"defs");
+        var g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute('id',"pathss");
+        g.setAttribute('fill',"none");
+        g.setAttribute('stroke-width',"3");
+        g.setAttribute('transform',"translate("+cx+","+cy+")");
+
+        svg.setAttribute('viewBox',"0 0 " + size + " " + size);
+        svg.setAttribute('id',"colourwheel");
+        svg.setAttribute('width',"318px");
+        svg.setAttribute('height',"318px");
+
+        svg.appendChild(defs);
+        svg.appendChild(g);
+        div.appendChild(svg);
+
+        var radius = 16;
+        var stepAngle = 2 * Math.PI / numSegments;
+
+        var lastX = 0;
+        var lastY = -radius;
+        var lastAngle = 0;
+        
+        for (var i=1; i<=numSegments; i++)
+        {
+            var angle = i * stepAngle;
+
+            // Calculate this arc end point
+            var x = radius * Math.sin(angle);
+            var y = -radius * Math.cos(angle);
+            // Create a path element
+            var arc = document.createElementNS(svgns, "path");
+            arc.setAttribute("d", "M " + lastX.toFixed(3) + "," + lastY.toFixed(3)
+                                + " A 100,100 0 0,1 " + x.toFixed(3) + "," + y.toFixed(3));
+            arc.setAttribute("stroke", colors[i-1]);
+            // Append it to our SVG
+            g.appendChild(arc);
+            
+            // Create a gradient for this segment
+            var grad = document.createElementNS(svgns, "linearGradient");
+            grad.setAttribute("id", "wheelseg"+i);
+            grad.setAttribute("gradientUnits", "userSpaceOnUse");
+            grad.setAttribute("x1", lastX.toFixed(3));
+            grad.setAttribute("y1", lastY.toFixed(3));
+            grad.setAttribute("x2", x.toFixed(3));
+            grad.setAttribute("y2", y.toFixed(3));
+            // Make the 0% stop for this gradient
+            var stop = document.createElementNS(svgns, "stop");
+            stop.setAttribute("offset", "0%");
+            hue = Math.round(lastAngle * 360 / Math.PI / 2);
+            stop.setAttribute("stop-color", "hsl(" + hue + ",100%,50%)");
+            grad.appendChild(stop);
+            // Make the 100% stop for this gradient
+            stop = document.createElementNS(svgns, "stop");
+            stop.setAttribute("offset", "100%");
+            hue = Math.round(angle * 360 / Math.PI / 2);
+            stop.setAttribute("stop-color", "hsl(" + hue + ",100%,50%)");
+            grad.appendChild(stop);
+            // Add the gradient to the SVG
+            defs.appendChild(grad);
+            // Update lastx/y
+            lastX = x;
+            lastY = y;
+            lastAngle = angle;
+        }
+        makeLogo('colourwheel',cx-5,cy-5,cx+5,cy+5, ["#ffff00", "#0080ff", "#6600cc", "#80ff00"]);        
+    }
+</script>
+</body>
+</html>
