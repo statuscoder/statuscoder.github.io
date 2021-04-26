@@ -780,10 +780,10 @@
         params += document.querySelector("#reset-top").checked == true ? 'top_init&' : '';
         params += document.querySelector("#reset-bottom").checked == true ? 'bottom_init&' : '';
         params += document.querySelector("#reset-logo").checked == true ? 'logo_reset&' : '';
-        params += createLedColorParams('top_bg',top_bg_colors);
-        params += createLedColorParams('top',top_fg_colors);
-        params += createLedColorParams('bottom_bg',btm_bg_colors);
-        params += createLedColorParams('bottom',btm_fg_colors);
+        params += createLedColorParams('top_bg',top_bg_colors)+'&';
+        params += createLedColorParams('top',top_fg_colors)+'&';
+        params += createLedColorParams('bottom_bg',btm_bg_colors)+'&';
+        params += createLedColorParams('bottom',btm_fg_colors)+'&';
         params += (document.querySelector("#morph-check").checked == true && $("#morph-motion").val().length > 0) ? $('#morph-motion').val() + '&' : ''; 
         params += (document.querySelector("#whirl-check").checked == true && $("#whirl-motion").val().length > 0) ? $('#whirl-motion').val() + '&' : ''; 
         params = params.substr(0,params.length-1);
