@@ -723,9 +723,9 @@
       $.ajax({
           url:  url,
           type: "GET",
-          beforeSend: function (request) {
-           request.withCredentials = false;
-          },          
+//          beforeSend: function (request) {
+//           request.withCredentials = false;
+//          },          
           error: function() {
             $('#api-status').val('#ff0000');
             if (log_flow) console.log('error!');
